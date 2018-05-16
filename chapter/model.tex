@@ -30,6 +30,65 @@ Chaque élément de la matrice \textbf{A} est simulé par une loi de Bernoulli a
   \end{array}
 \right.\nonumber
 \end{equation}
+\begin{equation} 
+A_{ij} = A_{ji}\nonumber
+\end{equation}
+
 
 \subsection{Analyse spectrale de la matrice d'adjacence \textbf{A}}
-L'idée générale de l'analyse spectrale qui va suivre est de nous ramener à un régime spectral de grande matrices aléatoires connu (ici )
+L'idée générale de l'analyse spectrale qui va suivre est de nous ramener à un régime spectral de grande matrices aléatoires connu. 
+Dans notre cas, nous verrons que le régime associé à notre matrice d'adjacence (SBM $\textbf{q}=2$) est celui du théorème de \textit{Wigner} avec perturbation de rang 1.
+La trame sera la suivante:
+\begin{itemize}
+ 	\item[1-] réécriture de la matrice $A = \langle A \rangle + X$;
+ 	\item[2-] étude de la mesure spectrale de X;
+ 	\item[3-] étude de la mesure spectrale de B tel que $B = X + P1$;
+ 	\item[4-] étude de la mesure spectrale de $A = B + P2 = X + P1 + P2$.
+ \end{itemize} 
+où $P1$, $P2$ sont des perturbations de rang 1 et $\langle A \rangle$ correspond à la moyenne de A du SBM.\\
+
+Soit 
+\begin{equation} 
+\langle A \rangle = \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T
+\end{equation}
+Avec
+\begin{align*}
+c_{in} &= np_{int} \\
+c_{out} &= np_{out}\\
+\mathbf{1} &= (1, 1, \ldots)/\sqrt{n}\\
+\mathbf{u} &= (1, 1, \ldots, -1, -1, \ldots)/\sqrt{n}
+\end{align*}
+
+À présent \textbf{A} peut être écrite sous la forme $A = \langle A \rangle + X$.
+X est interprétable comme la déviation entre la matrice d'adjacence du graphe et sa moyenne.
+X est par définition une matrice aléatoire symétrique à entrées iid et de moyenne 0, elle est donc une matrice de Wigner.
+Essayons d'analyser sa mesure spectrale.
+On a 
+
+\begin{equation}
+X = A - \langle A \rangle\nonumber
+\end{equation}
+\begin{equation}
+	X_{ij} \sim \left\{
+	\begin{array}{lr}
+		B(p_{in}) - p_{in} & : (i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) \\
+		B(p_{out}) - p_{out} & : else \; where
+	\end{array}
+\right.\nonumber
+\end{equation}
+
+Comme X est une matrice de Wigner, nous aimerions modifier la forme des entrées $X_{ij}$ en $\sigma_{ij} Z_{ij}$, où $Z_{ij}$ est une variable aléatoire centrée réduite, afin de nous ramener à des théorèmes connus.
+
+pour $(i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) $
+\begin{align*}
+\mathbb{E}(X_{ij}) &= \mathbb{E}(B(p_{in}))- p_{in} = 0\\
+\sigma_{in}^2 &= \mathbb{V}(X_{ij}) \\ 
+			  &= \mathbb{V}(B(p_{in})) \\
+			  &= p_{in} (1 - p_{in})
+\end{align*}
+même raisonnement avec $p_{out}$ 
+\begin{align*}
+\sigma_{out}^2 =  p_{out} (1 - p_{out})
+\end{align*}
+finalement on obtient 
+\subsection{Interprétation}
