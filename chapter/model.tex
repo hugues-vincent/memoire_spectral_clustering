@@ -7,7 +7,7 @@
 % \subparagraph{sous-paragraphe}
 \section{Théorie}
 \subsection{Contexte}
-Le but de ce papier est d'expliquer en détail la méthode de détection de communauté via la théorie spectrale des graphes de l'article de RR. Nadakuditi et M. E. J. Newmann .
+Le but de ce papier est d'expliquer en détail la méthode de détection de communauté via la théorie spectrale de l'article de RR. Nadakuditi et M. E. J. Newmann .
 
 Nous allons nous placer dans le contexte d'un Stochastic Block Model (SBM) à deux communautés (i.e \textbf{q}=2).
 Autrement dit, dans un graphe \textbf{G} non orienté à \textbf{n} noeuds dont la probabilité d'existence d'une arête entre deux noeuds est la suivante:
@@ -62,7 +62,7 @@ c_{out} &= np_{out}\\
 
 À présent \textbf{A} peut être écrite sous la forme $A = \langle A \rangle + X$.
 X est interprétable comme la déviation entre la matrice d'adjacence du graphe et sa moyenne.
-X est par définition une matrice aléatoire symétrique à entrées iid et de moyenne 0.
+X est par définition une matrice aléatoire symétrique à entrées indépendantes et de moyenne 0.
 Essayons d'analyser sa mesure spectrale.
 On a 
 
@@ -80,7 +80,7 @@ X = A - \langle A \rangle\nonumber
 
 Nous aimerions modifier la forme des entrées $X_{ij}$ en $\sigma_{ij} Z_{ij}$, où $Z_{ij}$ est une variable aléatoire centrée réduite, afin de nous ramener à des théorèmes connus.
 
-pour $(i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) $
+Pour $(i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) $ on a:
 \begin{align*}
 \mathbb{E}(X_{ij}) &= \mathbb{E}(B(p_{in}))- p_{in} = 0\\
 \sigma_{in}^2 &= \mathbb{V}(X_{ij}) \\ 
@@ -147,7 +147,7 @@ Soit $Q(z)$ la résolvante de W
 \begin{align*} 
 Q(z) = (W - zI)^{-1}\\
 \end{align*}
-Soient $\mathbf{u}$, $\mathbf{v}$ des vecteurs déterministes tels que $||\mathbf{u}||, ||\mathbf{v}|| < \infty$.\\
+Soient $\mathbf{u}$, $\mathbf{v}$ des vecteurs déterministes tels que $\|\mathbf{u}\|, \|\mathbf{v}\| < \infty$.\\
 Alors 
 \begin{align*} 
 \mathbf{u}^*Q(z)\mathbf{v} - \langle \mathbf{u}, \mathbf{v} \rangle g_{wig}^{\sigma^2} \xrightarrow[n \to +\infty]{} 0\\
@@ -172,7 +172,7 @@ Donc
 
 de plus $\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) = \mathcal{O}(\sqrt(n))$ et $\sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}} =  \mathcal{O}(\frac{1}{\sqrt(n)})$\\
  
-Comme $A = X + \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T$ et $\langle\mathbf{u}, \mathbf{1}\rangle = 0 \; ||\mathbf{u}||=||\mathbf{v}||=1$ on a
+Comme $A = X + \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T$ et $\langle\mathbf{u}, \mathbf{1}\rangle = 0 \; \|\mathbf{u}\|=\|\mathbf{v}\|=1$ on a
 \begin{align*}
 	&\Leftrightarrow (\Gamma + \alpha\mathbf{11}^T + \beta \mathbf{uu}^T)\mathbf{v} = \lambda \mathbf{v}\\
 	&\Leftrightarrow (\Gamma - \lambda I)\mathbf{v} = -\alpha\mathbf{11}^T\mathbf{v} - \beta \mathbf{uu}^T\mathbf{v} \\
@@ -186,4 +186,39 @@ Comme $A = X + \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} -
 \subsection{Interprétation}
 On sait que si $p_{in} - p_{out} \le 0$  le graphe n'admet pas de structure de communauté.
 De plus notre détection spectral nous dit que si la plus grande valeur propre sort du support de $\rho(z)$ alors il le graphe admet une structure de communauté.
-La borne droite du support est $\lambda^+ = 2\sigma = \sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}$ 
+La borne droite du support est $\lambda^+ = 2\sigma = \sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}$.
+
+Dans la mesure où  $\lambda^+$ est positif ou nul, lorsque $p_{in} - p_{out} \in [0, p_{lim}]$ alors la méthode spectrale est incapable de conclure.\\
+ 
+Nous cherchons à déterminer $p_{lim}$.
+La condition limite naturelle est celle où la valeur propre maximale est égale au bord droit du support de la mesure spectrale de la matrice B.
+On a alors 
+\begin{align*}
+	&\Leftrightarrow \lambda_{max} = \lambda^+\\
+	&\Leftrightarrow \sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)} = \frac{(c_{in} - c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}}\\
+	&\Leftrightarrow \sqrt{2S} = \alpha + \beta S\\
+	&\Leftrightarrow 2S = \alpha^2 + 2\alpha \beta S +\beta^2 S^2\\
+	&\Leftrightarrow 0 = \beta^2 S^2 + 2(\alpha \beta - 1)S+ \alpha^2 \\
+	&\text{après résolution de l'équation on obtient une unique solution}\\
+	&\Leftrightarrow p_{in} - p_{out} = \frac{\sqrt{2(\sigma_{in}^2 + \sigma{out}^2)}}{\sqrt{n}}  \\
+\end{align*}
+Donc
+\begin{equation}
+	p_{lim} = \frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}= \frac{2\sigma}{\sqrt{n}}  \\
+\end{equation}
+
+D'après ce modèle, plus on a de noeuds dans le graphe, plus on a de l'information, et donc moins on a de chance de tomber sur cet intervalle.\\
+
+Ci-dessous un tableau comparatif entre les résultats obtenus et ceux de l'article.
+L'essence de la divergence intervient lorsque qu'il est défini que $\mathbb{V}(X_{ij}) = \frac{(c_{in} + c_{out})}{2n}$.
+\underline{À gauche}: les résultats de l'article ; \underline{À droite}: les résultats obtenus ci-dessus:
+
+\begin{align*}
+	\rho (z)&: \frac{n}{\pi}\frac{\sqrt{(2(c_{in} + c_{out}) - x^2)_+}}{\pi(c_{in} + c_{out})} &\neq& \frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}\\
+	\sigma^2&: \frac{c_{in} + c_{out}}{2n} &\neq& \frac{\sigma_{in}^2 + \sigma_{out}^2}{2} \\
+	z1&: \frac{c_{in}-c_{out}}{2} + \frac{c_{in}+c_{out}}{c_{in}-c_{out}} &\neq& \frac{c_{in}-c_{out}}{2} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}-c_{out}}\\
+	z2&: \frac{c_{in}+c_{out}}{2} + 1 &\neq& \frac{c_{in}+c_{out}}{2} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}+c_{out}}\\
+	p_{lim}&: \frac{\sqrt{2(c_{in} - c_{out})}}{\sqrt{n}}&\neq& \frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}\\
+\end{align*}
+
+
