@@ -4,6 +4,7 @@
 % Import
 \usepackage[francais]{babel}
 \usepackage[T1]{fontenc}
+\usepackage{fontspec} 
 \newcommand\fr{\selectlanguage{francais}}
 \usepackage{titlesec}
 \usepackage{graphicx}
@@ -11,7 +12,7 @@
 \usepackage{amsmath}
 \usepackage{amstext}
 \usepackage{amssymb}
-
+\newtheorem{theorem}{Theorem}
 
 \title{Graph spectra and the detectability of community structure in networks}
 \author{Hugues-Vincent Ropert}
@@ -31,9 +32,10 @@
 
 \tableofcontents
 % \newpage
-
 \input{chapter/model}
 \input{chapter/simulation}
 \input{chapter/generalisation}
-
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{b}
 \end{document}

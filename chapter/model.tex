@@ -47,9 +47,10 @@ La trame sera la suivante:
  \end{itemize} 
 où $P1$, $P2$ sont des perturbations de rang 1 et $\langle A \rangle$ correspond à la moyenne de A du SBM.\\
 
-Soit 
+Soit
+% ------------------------------------------------- equation (1) -------------------------------------------------
 \begin{equation} 
-\langle A \rangle = \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T
+\langle A \rangle := \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T
 \end{equation}
 Avec
 \begin{align*}
@@ -61,7 +62,7 @@ c_{out} &= np_{out}\\
 
 À présent \textbf{A} peut être écrite sous la forme $A = \langle A \rangle + X$.
 X est interprétable comme la déviation entre la matrice d'adjacence du graphe et sa moyenne.
-X est par définition une matrice aléatoire symétrique à entrées iid et de moyenne 0, elle est donc une matrice de Wigner.
+X est par définition une matrice aléatoire symétrique à entrées iid et de moyenne 0.
 Essayons d'analyser sa mesure spectrale.
 On a 
 
@@ -77,7 +78,7 @@ X = A - \langle A \rangle\nonumber
 \right.\nonumber
 \end{equation}
 
-Comme X est une matrice de Wigner, nous aimerions modifier la forme des entrées $X_{ij}$ en $\sigma_{ij} Z_{ij}$, où $Z_{ij}$ est une variable aléatoire centrée réduite, afin de nous ramener à des théorèmes connus.
+Nous aimerions modifier la forme des entrées $X_{ij}$ en $\sigma_{ij} Z_{ij}$, où $Z_{ij}$ est une variable aléatoire centrée réduite, afin de nous ramener à des théorèmes connus.
 
 pour $(i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) $
 \begin{align*}
@@ -91,4 +92,98 @@ même raisonnement avec $p_{out}$
 \sigma_{out}^2 =  p_{out} (1 - p_{out})
 \end{align*}
 finalement on obtient 
+\begin{equation}
+	X_{ij} \sim \left\{
+	\begin{array}{lr}
+		\sigma_{in} Z_{ij} & : (i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) \\
+		\sigma_{out} Z_{ij} & : else \; where
+	\end{array}
+\right.\nonumber
+\end{equation}
+Où $Z_{ij} = \frac{B(p) - p}{\sqrt{p(1-p)}} \;\;avec \; p = p_{in} \lor p_{out}$\\
+
+Le théorème de Wigner ne fonctionne que pour les matrices à entrées iid, or l'écart type est dépendant des indices de la matrice.
+Cependant il existe un théorème pour notre cas.
+\begin{theorem}
+Soit $W \in M_{n}(\mathbb{R})$, $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$
+
+Si le profil de variance de $\frac{W}{\sqrt{n}}$, $V$, est telle que $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$ pour $\sigma \in \mathbb{R}$
+
+Alors si on note la mesure spectrale de $\frac{W}{\sqrt{n}}$, $L_{n}$  et $\mathbb{P}_{wig}$ la mesure associé à la distribution $f_{wig}= \frac{\sqrt{(4\sigma^2 - x^2)_+}}{2\pi\sigma^2}$ on a:
+
+\begin{equation}
+	L_n\xrightarrow[n \to +\infty]{etr} \mathbb{P}_{wig}\nonumber
+\end{equation}\\
+\end{theorem}
+
+Soit $V$ le profile de variance de $\frac{X}{\sqrt{n}}$. $\forall i = 1:n$ on a: 
+\begin{align*} 
+\sigma_{i \cdot}^2 &= \sum_{j=1}^{n}V_{ij}  \\
+ 		&= \frac{\sigma_{in}^2 + \sigma_{out}^2}{2}  \\
+		&=\sigma^2
+\end{align*}
+Si on note $\rho(x)$ la densité spectrale de $\frac{X}{\sqrt{n}}$ on a;
+\begin{equation}
+	\rho(x) = \frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}
+\end{equation}
+
+Dans la suite de l'étude nous noterons B la matrice de modularité telle que 
+\begin{align*} 
+B :&= X + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T \\
+\frac{B}{\sqrt{n}} &= \frac{X}{\sqrt{n}} + \frac{1}{2\sqrt{n}}(c_{in} - c_{out})\mathbf{uu}^T\\
+\end{align*}
+Soit v le vecteur propre de $\frac{B}{\sqrt{n}}$ de $\lambda_{max}$ et soit $\Gamma = \frac{X}{\sqrt{n}}$
+
+\begin{align} 
+\frac{B}{\sqrt{n}}\mathbf{v} &= \lambda_{max}\mathbf{v} \nonumber\\
+(\Gamma - \lambda_{max}I)\mathbf{v} &= -\frac{1}{2\sqrt{n}}(c_{in} - c_{out})\mathbf{uu}^T \mathbf{v} \nonumber\\
+ \mathbf{u^Tv} &= -\frac{1}{2\sqrt{n}}(c_{in} - c_{out})\mathbf{u^T}(\Gamma - \lambda_{max}I)^{-1}\mathbf{uu}^T \mathbf{v} \nonumber\\
+ 1 &= -\frac{1}{2\sqrt{n}}(c_{in} - c_{out})\mathbf{u^T}(\Gamma - \lambda_{max}I)^{-1}\mathbf{u} \label{eq:3}
+\end{align}
+
+\begin{theorem}[Théorème de Wigner isotrope]
+Soit $W \in M_{n}(\mathbb{R})$, telle que $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$, W à un profile de variance V telle que $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$ pour $\sigma \in \mathbb{R}$\\
+Soit $Q(z)$ la résolvante de W
+\begin{align*} 
+Q(z) = (W - zI)^{-1}\\
+\end{align*}
+Soient $\mathbf{u}$, $\mathbf{v}$ des vecteurs déterministes tels que $||\mathbf{u}||, ||\mathbf{v}|| < \infty$.\\
+Alors 
+\begin{align*} 
+\mathbf{u}^*Q(z)\mathbf{v} - \langle \mathbf{u}, \mathbf{v} \rangle g_{wig}^{\sigma^2} \xrightarrow[n \to +\infty]{} 0\\
+\end{align*}
+où $g_{wig}^{\sigma^2}$ est la transformé de Stieltjes de la loi de Wigner associé au paramètre $\sigma^2$\\
+\end{theorem}
+
+Reprenons l’équation \eqref{eq:3}, en appliquant le Théorème de Wigner isotrope et en s'assurant que tous les termes de droite convergent, nous avons:
+\begin{align*}
+\mathbf{u^T}(\Gamma - \lambda_{max}I)^{-1}\mathbf{u} \xrightarrow[n \to +\infty]{} g_{wig}^{\sigma^2}(\lambda_{max})
+\end{align*}
+or $g_{wig}^{\sigma^2}(\lambda_{max})$ satisfait l'équation suivante 
+\begin{align}
+	\sigma^2U^2+\lambda_{max}U+1=0 \implies U = \frac{- \lambda_{max} \pm \sqrt{(\lambda_{max}^2 - 4\sigma^2)}}{2\sigma^2}
+\end{align}
+Donc
+\begin{align}
+	\eqref{eq:3} &\Leftrightarrow1 = -\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) g_{wig}^{\sigma^2}(\lambda_{max}) \nonumber\\
+	&\Leftrightarrow 1 = -\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) \frac{- \lambda_{max} - \sqrt{(\lambda_{max}^2 - 4\sigma^2)}}{2\sigma^2} \nonumber\\
+	&\Leftrightarrow \lambda_{max} = \frac{(c_{in} - c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}}
+\end{align}
+
+de plus $\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) = \mathcal{O}(\sqrt(n))$ et $\sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}} =  \mathcal{O}(\frac{1}{\sqrt(n)})$\\
+ 
+Comme $A = X + \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T$ et $\langle\mathbf{u}, \mathbf{1}\rangle = 0 \; ||\mathbf{u}||=||\mathbf{v}||=1$ on a
+\begin{align*}
+	&\Leftrightarrow (\Gamma + \alpha\mathbf{11}^T + \beta \mathbf{uu}^T)\mathbf{v} = \lambda \mathbf{v}\\
+	&\Leftrightarrow (\Gamma - \lambda I)\mathbf{v} = -\alpha\mathbf{11}^T\mathbf{v} - \beta \mathbf{uu}^T\mathbf{v} \\
+	&\Leftrightarrow \mathbf{1^Tv} = -\alpha\mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{11}^T\mathbf{v} - \beta \mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{uu}^T\mathbf{v} \\
+	&\Leftrightarrow 1 = -\alpha\mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{1} - \beta \mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{u} \\
+	&\xrightarrow[n \to +\infty]{} 1 = -\alpha g_{wig}^{\sigma^2}(\lambda) \\
+	&\Leftrightarrow 1 = -\alpha  \frac{- \lambda - \sqrt{(\lambda^2 - 4\sigma^2)}}{2\sigma^2}\\
+	&\Leftrightarrow \lambda = \frac{(c_{in} + c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} + c_{out}}
+\end{align*} 
+
 \subsection{Interprétation}
+On sait que si $p_{in} - p_{out} \le 0$  le graphe n'admet pas de structure de communauté.
+De plus notre détection spectral nous dit que si la plus grande valeur propre sort du support de $\rho(z)$ alors il le graphe admet une structure de communauté.
+La borne droite du support est $\lambda^+ = 2\sigma = \sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}$ 
