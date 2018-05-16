@@ -1,0 +1,35 @@
+% \part{partie}
+% \chapter{chapitre}
+% \section{section}
+% \subsection{sous-section}
+% \subsubsection{sous-sous-section}
+% \paragraph{paragraphe}
+% \subparagraph{sous-paragraphe}
+\section{Théorie}
+\subsection{Contexte}
+Le but de ce papier est d'expliquer en détail la méthode de détection de communauté via la théorie spectrale des graphes de l'article de RR. Nadakuditi et M. E. J. Newmann .
+
+Nous allons nous placer dans le contexte d'un Stochastic Block Model (SBM) à deux communautés (i.e \textbf{q}=2).
+Autrement dit, dans un graphe \textbf{G} non orienté à \textbf{n} noeuds dont la probabilité d'existence d'une arête entre deux noeuds est la suivante:
+\begin{itemize}
+    \item[Même communauté:] $\mathbf{p_{in}}$  
+    \item[Différentes communautés:] $\mathbf{p_{out}}$\\
+\end{itemize}
+
+Nous noterons \textbf{A} la matrice d'adjacence du graphe \textbf{G}.
+Elle est symétrique de par le fait que le graphe soit non orienté.
+Nous supposerons d'ailleurs, que ses éléments sont rangés dans l'ordre de leur communauté.
+Dans notre cas avec \textbf{q}=2, les $\mathbf{n}/2$ premières lignes correspondent aux noeuds de la communauté 1, et les $\mathbf{n}/2$ dernières la communauté 2.
+Même chose pour les colonnes, par symétrie de \textbf{A}.
+Chaque élément de la matrice \textbf{A} est simulé par une loi de Bernoulli avec: 
+\begin{equation} 
+ A_{ij} \sim \left\{
+  \begin{array}{lr}
+    B(p_{in}) & : (i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) \\
+    B(p_{out}) & : else \; where
+  \end{array}
+\right.\nonumber
+\end{equation}
+
+\subsection{Analyse spectrale de la matrice d'adjacence \textbf{A}}
+L'idée générale de l'analyse spectrale qui va suivre est de nous ramener à un régime spectral de grande matrices aléatoires connu (ici )

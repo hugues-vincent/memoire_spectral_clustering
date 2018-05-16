@@ -1,0 +1,40 @@
+\documentclass{article} % article, report, book, slides, beamer, lettre, memoir
+ 
+% =============================
+% Import
+\usepackage[francais]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\newcommand\fr{\selectlanguage{francais}}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{amssymb}
+
+
+\title{Graph spectra and the detectability of community structure in networks}
+\author{Hugues-Vincent Ropert}
+\date{Mai 2018}
+
+% \newcommand{\example}{\textit{example} }
+
+\titleformat{\chapter}
+  {\Large\bfseries} % format
+  {}                % label
+  {0pt}             % sep
+  {\huge}           % before-code
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+% \newpage
+
+\input{chapter/model}
+\input{chapter/simulation}
+\input{chapter/generalisation}
+
+\end{document}
