@@ -50,7 +50,7 @@ où $P1$, $P2$ sont des perturbations de rang 1 et $\langle A \rangle$ correspon
 Soit
 % ------------------------------------------------- equation (1) -------------------------------------------------
 \begin{equation} 
-\langle A \rangle := \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T
+\langle A \rangle := \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T \label{eq:1}
 \end{equation}
 Avec
 \begin{align*}
@@ -167,21 +167,25 @@ Donc
 \begin{align}
 	\eqref{eq:3} &\Leftrightarrow1 = -\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) g_{wig}^{\sigma^2}(\lambda_{max}) \nonumber\\
 	&\Leftrightarrow 1 = -\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) \frac{- \lambda_{max} - \sqrt{(\lambda_{max}^2 - 4\sigma^2)}}{2\sigma^2} \nonumber\\
-	&\Leftrightarrow \lambda_{max} = \frac{(c_{in} - c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}}
+	&\Leftrightarrow \lambda_{max} = \frac{(c_{in} - c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}} \label{z1}
 \end{align}
 
 de plus $\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) = \mathcal{O}(\sqrt(n))$ et $\sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}} =  \mathcal{O}(\frac{1}{\sqrt(n)})$\\
  
 Comme $A = X + \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T$ et $\langle\mathbf{u}, \mathbf{1}\rangle = 0 \; \|\mathbf{u}\|=\|\mathbf{v}\|=1$ on a
-\begin{align*}
-	&\Leftrightarrow (\Gamma + \alpha\mathbf{11}^T + \beta \mathbf{uu}^T)\mathbf{v} = \lambda \mathbf{v}\\
-	&\Leftrightarrow (\Gamma - \lambda I)\mathbf{v} = -\alpha\mathbf{11}^T\mathbf{v} - \beta \mathbf{uu}^T\mathbf{v} \\
-	&\Leftrightarrow \mathbf{1^Tv} = -\alpha\mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{11}^T\mathbf{v} - \beta \mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{uu}^T\mathbf{v} \\
-	&\Leftrightarrow 1 = -\alpha\mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{1} - \beta \mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{u} \\
-	&\xrightarrow[n \to +\infty]{} 1 = -\alpha g_{wig}^{\sigma^2}(\lambda) \\
-	&\Leftrightarrow 1 = -\alpha  \frac{- \lambda - \sqrt{(\lambda^2 - 4\sigma^2)}}{2\sigma^2}\\
-	&\Leftrightarrow \lambda = \frac{(c_{in} + c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} + c_{out}}
-\end{align*} 
+\begin{align}
+	&\Leftrightarrow (\Gamma + \alpha\mathbf{11}^T + \beta \mathbf{uu}^T)\mathbf{v} = \lambda \mathbf{v}\nonumber\\
+	&\Leftrightarrow (\Gamma - \lambda I)\mathbf{v} = -\alpha\mathbf{11}^T\mathbf{v} - \beta \mathbf{uu}^T\mathbf{v} \nonumber\\
+	&\Leftrightarrow \mathbf{1^Tv} = -\alpha\mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{11}^T\mathbf{v} - \beta \mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{uu}^T\mathbf{v} \nonumber\\
+	&\Leftrightarrow 1 = -\alpha\mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{1} - \beta \mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{u} \nonumber\\
+	&\xrightarrow[n \to +\infty]{} 1 = -\alpha g_{wig}^{\sigma^2}(\lambda) \nonumber\\
+	&\Leftrightarrow 1 = -\alpha  \frac{- \lambda - \sqrt{(\lambda^2 - 4\sigma^2)}}{2\sigma^2}\nonumber\\
+	&\Leftrightarrow \lambda = \frac{(c_{in} + c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} + c_{out}} \label{z2}
+\end{align} 
+
+On a finalement une matrice A qui est la somme d'une matrice aléatoire X et de deux perturbations de rang 1.
+De fait, la mesure spectrale de A à deux valeurs propres qui sortent du bulk, à savoir $\lambda_{max}$ et $\lambda$.
+Par la suite nous noterons $z1 = \lambda_{max}$ et $z2 = \lambda$
 
 \subsection{Interprétation}
 On sait que si $p_{in} - p_{out} \le 0$  le graphe n'admet pas de structure de communauté.
@@ -194,7 +198,7 @@ Nous cherchons à déterminer $p_{lim}$.
 La condition limite naturelle est celle où la valeur propre maximale est égale au bord droit du support de la mesure spectrale de la matrice B.
 On a alors 
 \begin{align*}
-	&\Leftrightarrow \lambda_{max} = \lambda^+\\
+	&\Leftrightarrow \lambda^+ = \lambda_{max}\\
 	&\Leftrightarrow \sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)} = \frac{(c_{in} - c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}}\\
 	&\Leftrightarrow \sqrt{2S} = \alpha + \beta S\\
 	&\Leftrightarrow 2S = \alpha^2 + 2\alpha \beta S +\beta^2 S^2\\
@@ -207,18 +211,18 @@ Donc
 	p_{lim} = \frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}= \frac{2\sigma}{\sqrt{n}}  \\
 \end{equation}
 
-D'après ce modèle, plus on a de noeuds dans le graphe, plus on a de l'information, et donc moins on a de chance de tomber sur cet intervalle.\\
+D'après ce modèle, plus on a de noeuds dans le graphe, plus on a de l'information, et donc moins on a de chance de tomber sur cet intervalle d’indécidabilité.\\
 
 Ci-dessous un tableau comparatif entre les résultats obtenus et ceux de l'article.
 L'essence de la divergence intervient lorsque qu'il est défini que $\mathbb{V}(X_{ij}) = \frac{(c_{in} + c_{out})}{2n}$.
 \underline{À gauche}: les résultats de l'article ; \underline{À droite}: les résultats obtenus ci-dessus:
 
 \begin{align*}
-	\rho (z)&: \frac{n}{\pi}\frac{\sqrt{(2(c_{in} + c_{out}) - x^2)_+}}{\pi(c_{in} + c_{out})} &\neq& \frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}\\
-	\sigma^2&: \frac{c_{in} + c_{out}}{2n} &\neq& \frac{\sigma_{in}^2 + \sigma_{out}^2}{2} \\
-	z1&: \frac{c_{in}-c_{out}}{2} + \frac{c_{in}+c_{out}}{c_{in}-c_{out}} &\neq& \frac{c_{in}-c_{out}}{2} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}-c_{out}}\\
-	z2&: \frac{c_{in}+c_{out}}{2} + 1 &\neq& \frac{c_{in}+c_{out}}{2} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}+c_{out}}\\
-	p_{lim}&: \frac{\sqrt{2(c_{in} - c_{out})}}{\sqrt{n}}&\neq& \frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}\\
+	\rho (z)&: \frac{n}{\pi}\frac{\sqrt{(2(c_{in} + c_{out}) - x^2)_+}}{\pi(c_{in} + c_{out})} &\;& \frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}\\
+	\sigma^2&: \frac{c_{in} + c_{out}}{2n} &\;& \frac{\sigma_{in}^2 + \sigma_{out}^2}{2} \\
+	z1&: \frac{c_{in}-c_{out}}{2} + \frac{c_{in}+c_{out}}{c_{in}-c_{out}} &\;& \frac{c_{in}-c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}-c_{out}}\\
+	z2&: \frac{c_{in}+c_{out}}{2} + 1 &\;& \frac{c_{in}+c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}+c_{out}}\\
+	p_{lim}&: \frac{\sqrt{2(c_{in} - c_{out})}}{\sqrt{n}}&\;& \frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}\\
 \end{align*}
 
 
