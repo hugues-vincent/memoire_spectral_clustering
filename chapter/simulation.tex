@@ -20,10 +20,9 @@ La terminologie utilisée dans les figures ci-dessous est:
 \begin{itemize}
 	\item[- \underline{$n,\: p_{in},\: p_{out},\: p_{lim},\: z1,\: z2$}:] sont identiques aux notations utilisées jusqu'à présent ;
 	\item[- \underline{$z1\: theoric, \:z2\: theoric$}:] sont les plus grandes valeurs propres $z1$ et $z2$ calculées via les équations \eqref{z1} et \eqref{z2} ;    
-	\item[- \underline{$p_{in}\: estimated, \:p_{out}\: estimated$}:] sont les probabilités du SBM calculées a posteriori grâce aux valeurs propres $z1$ et $z2$ ;    
+	\item[- \underline{$p_{in}\: estimated, \:p_{out}\: estimated$}:] sont les probabilités du SBM calculées a posteriori grâce aux valeurs propres $z1$ et $z2$.\\
 \end{itemize}
-
-
+Les $p_{in}\: estimated, \:p_{out}\: estimated$ sont calculés via un calcul d'optimisation (la fonction ``fsolve'' en python).
 \begin{figure}[H]
 	\begin{subfigure}{.5\textwidth}
 		\centering
@@ -57,7 +56,13 @@ La terminologie utilisée dans les figures ci-dessous est:
 	\end{subfigure}
 \end{figure}
 
-La première observation que l'on peut faire est que les valeurs propres de notre matrice d'adjacence sont bien distribuées selon la loi du demi-cercle de Wigner.
-De plus, en fonction d\\
+La première observation que l'on peut faire est que les valeurs propres de nos matrices d'adjacence sont bien distribuées selon la loi du demi-cercle de Wigner.
+De plus, en fonction de $\Delta p$ la mesure spectrale est perturbé (ou pas) par une ou deux valeurs propres qui sortent du support de la distribution initiale.\\
 
-Dans les cas avec $\Delta p = 0.5$ on voit très clairement deux valeurs propres qui se détachent du bulk de la distribution de Wigner 
+Dans les cas avec $\Delta p = 0.5$ on voit très clairement deux valeurs propres qui se détachent du support de la distribution de Wigner.
+Les valeurs $z1$, $z2$ correspondent bien aux valeurs théoriques et dans ce cas on retrouve, avec un taux d'erreur de l'ordre de $10^{-2}$, les valeurs $p_{in}$, $p_{out}$ du modèle utilisé pour générer le graphe.\\
+Dans les cas avec $\Delta p = -0.5$ on ne s'attend pas à ce que les valeurs théorique du modèles correspondent aux valeurs trouvées par la simulation dans la mesure où il n'y a en théorie aucune structure de communauté dans le graphe.
+Cependant, on observe valeur propre en dehors du support de la loi de Wigner négative.
+Par conséquent lorsque l'on obtient une valeur propre négative, le modèle spectral définit ci-dessus nous permet de conclure qu'il n'y a pas de structure de communauté dans le graphe.\\
+Enfin, dans le cas avec $\Delta p = 0.08$, il y a en théorie une structure de communauté. 
+Cependant on se retrouve dans le cas limite décrit dans \autoref{subsec:1.3}  
