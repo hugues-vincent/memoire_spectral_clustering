@@ -1,1 +1,10 @@
 \section{Généralisation}
+\subsection{SBM avec 2 communautés de tailles différentes}
+
+\subsection{SBM avec n communautés}
+
+On peut a présent généraliser ce modèle spectral à un nombre de communautés $q \geq 2$.
+Cependant, la validité du modèle se place dans le contexte des théorèmes \ref{th:1} et \ref{th:2}, c'est à dire qu'il y a une contrainte sur les valeurs des probabilités de la matrice d'adjacence $A$.
+En effet, d'après le \autoref{th:1}, pour que la matrice $X$ est une mesure spectral qui tend vers la loi de Wigner il faut que la norme 1 des vecteurs lignes de son profile de variance soient égales ($\parallel X_{i \cdot} \parallel_1 = \sum_{j=1}^{n}|X_{ij}|$).
+Par conséquent, si on veut augmenter le nombre de communautés $q$ dans le modèle, on est forcé de garder deux probabilités $p_{in}$ et $p_{out}$ qui jouent le même rôle que celles introduites précédemment (cf. \ref{rq:probability}).
+De plus les communautés doivent être de même tailles, à savoir $\frac{n}{q}$.

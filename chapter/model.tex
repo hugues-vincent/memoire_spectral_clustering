@@ -11,7 +11,7 @@ Le but de ce papier est d'expliquer en détail la méthode de détection de comm
 
 Nous allons nous placer dans le contexte d'un Stochastic Block Model (SBM) à deux communautés (i.e \textbf{q}=2).
 Autrement dit, dans un graphe \textbf{G} non orienté à \textbf{n} noeuds dont la probabilité d'existence d'une arête entre deux noeuds est la suivante:
-\begin{itemize}
+\begin{itemize}\label{rq:probability}
     \item[Même communauté:] $\mathbf{p_{in}}$  
     \item[Différentes communautés:] $\mathbf{p_{out}}$\\
 \end{itemize}
@@ -106,7 +106,7 @@ Où $Z_{ij} = \frac{B(p) - p}{\sqrt{p(1-p)}} \;\;avec \; p = p_{in} \lor p_{out}
 % ------------------------------------------------- théorème 1 -------------------------------------------------
 Le théorème de Wigner ne fonctionne que pour les matrices à entrées iid, or l'écart type est dépendant des indices de la matrice.
 Cependant il existe un théorème pour notre cas.
-\begin{theorem}
+\begin{theorem}\label{th:1}
 Soit $W \in M_{n}(\mathbb{R})$, $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$
 
 Si le profil de variance de $\frac{W}{\sqrt{n}}$, $V$, est telle que $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$ pour $\sigma \in \mathbb{R}$
@@ -144,7 +144,7 @@ Soit v le vecteur propre de $\frac{B}{\sqrt{n}}$ de $\lambda_{max}$ et soit $\Ga
 \end{align}
 
 % ------------------------------------------------- Théorème de Wigner isotrope -------------------------------------------------
-\begin{theorem}[Théorème de Wigner isotrope]
+\begin{theorem}[Théorème de Wigner isotrope]\label{th:2}
 Soit $W \in M_{n}(\mathbb{R})$, telle que $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$, W à un profile de variance V tel que $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$ pour $\sigma \in \mathbb{R}$\\
 Soit $Q(z)$ la résolvante de W
 \begin{align*} 
