@@ -37,7 +37,7 @@ A_{ij} = A_{ji}\nonumber
 
 \subsection{Analyse spectrale de la matrice d'adjacence \textbf{A}}
 L'idée générale de l'analyse spectrale qui va suivre est de nous ramener à un régime spectral de grande matrices aléatoires connu. 
-Dans notre cas, nous verrons que le régime associé à notre matrice d'adjacence (SBM $\textbf{q}=2$) est celui du théorème de \textit{Wigner} avec perturbation de rang 1.
+Dans notre cas, nous verrons que le régime associé à notre matrice d'adjacence (SBM $\textbf{q}=2$) est celui du théorème de \textit{Wigner} avec perturbations de rang 1.
 La trame sera la suivante:
 \begin{itemize}
  	\item[1-] réécriture de la matrice $A = \langle A \rangle + X$;
@@ -78,6 +78,7 @@ X = A - \langle A \rangle\nonumber
 \right.\nonumber
 \end{equation}
 
+% ------------------------------------------------- réécriture de X_ij -------------------------------------------------
 Nous aimerions modifier la forme des entrées $X_{ij}$ en $\sigma_{ij} Z_{ij}$, où $Z_{ij}$ est une variable aléatoire centrée réduite, afin de nous ramener à des théorèmes connus.
 
 Pour $(i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) $ on a:
@@ -102,6 +103,7 @@ finalement on obtient
 \end{equation}
 Où $Z_{ij} = \frac{B(p) - p}{\sqrt{p(1-p)}} \;\;avec \; p = p_{in} \lor p_{out}$\\
 
+% ------------------------------------------------- théorème 1 -------------------------------------------------
 Le théorème de Wigner ne fonctionne que pour les matrices à entrées iid, or l'écart type est dépendant des indices de la matrice.
 Cependant il existe un théorème pour notre cas.
 \begin{theorem}
@@ -109,7 +111,7 @@ Soit $W \in M_{n}(\mathbb{R})$, $W_{ij}$ sont des variables aléatoires réels, 
 
 Si le profil de variance de $\frac{W}{\sqrt{n}}$, $V$, est telle que $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$ pour $\sigma \in \mathbb{R}$
 
-Alors si on note la mesure spectrale de $\frac{W}{\sqrt{n}}$, $L_{n}$  et $\mathbb{P}_{wig}$ la mesure associé à la distribution $f_{wig}= \frac{\sqrt{(4\sigma^2 - x^2)_+}}{2\pi\sigma^2}$ on a:
+Alors si on note la mesure spectrale de $\frac{W}{\sqrt{n}}$, $L_{n}$  et $\mathbb{P}_{wig}$ la mesure associé à la distribution $f_{wig}(x)= \frac{\sqrt{(4\sigma^2 - x^2)_+}}{2\pi\sigma^2}$ on a:
 
 \begin{equation}
 	L_n\xrightarrow[n \to +\infty]{etr} \mathbb{P}_{wig}\nonumber
@@ -141,8 +143,9 @@ Soit v le vecteur propre de $\frac{B}{\sqrt{n}}$ de $\lambda_{max}$ et soit $\Ga
  1 &= -\frac{1}{2\sqrt{n}}(c_{in} - c_{out})\mathbf{u^T}(\Gamma - \lambda_{max}I)^{-1}\mathbf{u} \label{eq:3}
 \end{align}
 
+% ------------------------------------------------- Théorème de Wigner isotrope -------------------------------------------------
 \begin{theorem}[Théorème de Wigner isotrope]
-Soit $W \in M_{n}(\mathbb{R})$, telle que $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$, W à un profile de variance V telle que $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$ pour $\sigma \in \mathbb{R}$\\
+Soit $W \in M_{n}(\mathbb{R})$, telle que $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$, W à un profile de variance V tel que $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$ pour $\sigma \in \mathbb{R}$\\
 Soit $Q(z)$ la résolvante de W
 \begin{align*} 
 Q(z) = (W - zI)^{-1}\\
@@ -196,7 +199,7 @@ La borne droite du support est $\lambda^+ = 2\sigma = \sqrt{2(\sigma_{in}^2 + \s
 Dans la mesure où  $\lambda^+$ est positif ou nul, lorsque $p_{in} - p_{out} \in [0, p_{lim}]$ alors la méthode spectrale est incapable de conclure.\\
  
 Nous cherchons à déterminer $p_{lim}$.
-La condition limite naturelle est celle où la valeur propre maximale est égale au bord droit du support de la mesure spectrale de la matrice B.
+La condition limite naturelle est celle où la valeur propre maximale est égale au bord droit du support de la mesure spectrale de la matrice A.
 On a alors 
 \begin{align*}
 	&\Leftrightarrow \lambda^+ = \lambda_{max}\\
@@ -212,6 +215,7 @@ Donc
 	p_{lim} = \frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}= \frac{2\sigma}{\sqrt{n}}  \\
 \end{equation}
 
+\paragraph{}\label{rq:ngrand}
 D'après ce modèle, plus on a de noeuds dans le graphe, plus on a de l'information, et donc moins on a de chance de tomber sur cet intervalle d’indécidabilité.\\
 
 Ci-dessous un tableau comparatif entre les résultats obtenus et ceux de l'article.
