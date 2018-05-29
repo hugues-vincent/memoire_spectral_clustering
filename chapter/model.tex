@@ -180,7 +180,6 @@ Comme $A = X + \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} -
 	&\Leftrightarrow (\Gamma + \alpha\mathbf{11}^T + \beta \mathbf{uu}^T)\mathbf{v} = \lambda \mathbf{v}\nonumber\\
 	&\Leftrightarrow (\Gamma - \lambda I)\mathbf{v} = -\alpha\mathbf{11}^T\mathbf{v} - \beta \mathbf{uu}^T\mathbf{v} \nonumber\\
 	&\Leftrightarrow \mathbf{1^Tv} = -\alpha\mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{11}^T\mathbf{v} - \beta \mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{uu}^T\mathbf{v} \nonumber\\
-	&\Leftrightarrow 1 = -\alpha\mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{1} - \beta \mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{u} \nonumber\\
 	&\xrightarrow[n \to +\infty]{} 1 = -\alpha g_{wig}^{\sigma^2}(\lambda) \nonumber\\
 	&\Leftrightarrow 1 = -\alpha  \frac{- \lambda - \sqrt{(\lambda^2 - 4\sigma^2)}}{2\sigma^2}\nonumber\\
 	&\Leftrightarrow \lambda = \frac{(c_{in} + c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} + c_{out}} \label{z2}
@@ -220,7 +219,7 @@ D'après ce modèle, plus on a de noeuds dans le graphe, plus on a de l'informat
 
 Ci-dessous un tableau comparatif entre les résultats obtenus et ceux de l'article.
 L'essence de la divergence intervient lorsque qu'il est défini que $\mathbb{V}(X_{ij}) = \frac{(c_{in} + c_{out})}{2n}$.
-\underline{À gauche}: les résultats de l'article ; \underline{À droite}: les résultats obtenus ci-dessus:
+\underline{À gauche}: les résultats de l'article original; \underline{À droite}: les résultats obtenus ci-dessus:
 
 \begin{align*}
 	\rho (z)&: \frac{n}{\pi}\frac{\sqrt{(2(c_{in} + c_{out}) - x^2)_+}}{\pi(c_{in} + c_{out})} &\;& \frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}\\

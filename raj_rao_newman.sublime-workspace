@@ -4,6 +4,70 @@
 		"selected_items":
 		[
 			[
+				"dd",
+				"\\ddots"
+			],
+			[
+				"cdo",
+				"\\cdots"
+			],
+			[
+				"para",
+				"\\parallel"
+			],
+			[
+				"re",
+				"\\ref"
+			],
+			[
+				"D",
+				"\\Delta"
+			],
+			[
+				"lef",
+				"\\left"
+			],
+			[
+				"fra",
+				"\\frac{}{}"
+			],
+			[
+				"tex",
+				"\\text{}"
+			],
+			[
+				"lan",
+				"\\langle"
+			],
+			[
+				"la",
+				"\\label"
+			],
+			[
+				"ro",
+				"\\rho"
+			],
+			[
+				"dot",
+				"\\odot"
+			],
+			[
+				"in",
+				"\\infty"
+			],
+			[
+				"mta",
+				"\\mathbb"
+			],
+			[
+				"sq",
+				"\\sqrt"
+			],
+			[
+				"sig",
+				"\\sigma"
+			],
+			[
 				"en",
 				"\\end"
 			],
@@ -12,28 +76,12 @@
 				"\\alpha"
 			],
 			[
-				"fra",
-				"\\frac{}{}"
-			],
-			[
-				"tex",
-				"\\textit{}"
-			],
-			[
 				"aut",
 				"\\author{}"
 			],
 			[
 				"m",
 				"\\maketitle"
-			],
-			[
-				"in",
-				"\\indent"
-			],
-			[
-				"re",
-				"resp"
 			],
 			[
 				"b",
@@ -466,92 +514,34 @@
 			[
 				"top",
 				"TopUpLog"
-			],
-			[
-				"topU",
-				"topUpLog"
-			],
-			[
-				"if",
-				"if\tIf Condition"
-			],
-			[
-				"save",
-				"save_default"
-			],
-			[
-				"ACCT",
-				"ACCT_TRANS_MONTHLY_ADJUSTMENT"
-			],
-			[
-				"Cou",
-				"courrency"
-			],
-			[
-				"mont",
-				"monthly_volume_consumption_m3"
-			],
-			[
-				"catt",
-				"cattegoryTax"
-			],
-			[
-				"volume",
-				"volume"
-			],
-			[
-				"transac",
-				"transaction_type"
-			],
-			[
-				"proce",
-				"processed_timestamp"
-			],
-			[
-				"ca",
-				"cattegoryTaxes"
-			],
-			[
-				"chan",
-				"changed_cattegory"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "chapter/model.tex",
+			"file": "raj_rao_newman.tex",
 			"settings":
 			{
-				"buffer_size": 3947,
+				"buffer_size": 1568,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "raj_rao_newman.tex",
+			"file": "chapter/model.tex",
 			"settings":
 			{
-				"buffer_size": 844,
+				"buffer_size": 12702,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "\n  BRANCH:  On branch `master`.\n  ROOT:    ~/Documents/cours/recherche/ecrit/raj_rao_newman\n  HEAD:    bbf5c51 firt commit\n\n  STAGED:\n    chapter/model.tex\n\n  ###################                   ###############\n  ## SELECTED FILE ##                   ## ALL FILES ##\n  ###################                   ###############\n\n  [o] open file                         [a] stage all unstaged files\n  [s] stage file                        [A] stage all unstaged and untracked files\n  [u] unstage file                      [U] unstage all staged files\n  [d] discard changes to file           [D] discard all unstaged changes\n  [h] open file on remote\n  [M] launch external merge tool\n\n  [l] diff file inline                  [f] diff all files\n  [e] diff file                         [F] diff all cached files\n\n  #############                         #############\n  ## ACTIONS ##                         ## STASHES ##\n  #############                         #############\n\n  [c] commit                            [t][a] apply stash\n  [C] commit, including unstaged        [t][p] pop stash\n  [m] amend previous commit             [t][s] show stash\n  [p] push current branch               [t][c] create stash\n                                        [t][u] create stash including untracked files\n  [i] ignore file                       [t][g] create stash of staged changes only\n  [I] ignore pattern                    [t][d] drop stash\n\n  [B] abort merge\n\n  ###########\n  ## OTHER ##\n  ###########\n\n  [r]         refresh status\n  [?]         toggle this help menu\n  [tab]       transition to next dashboard\n  [SHIFT-tab] transition to previous dashboard\n  [.]         move cursor to next file\n  [,]         move cursor to previous file\n\n-\n\n",
+			"file": "chapter/generalisation.tex",
 			"settings":
 			{
-				"buffer_size": 1734,
-				"line_ending": "Unix",
-				"name": "STATUS: raj_rao_newman",
-				"read_only": true,
-				"scratch": true
-			}
-		},
-		{
-			"file": "chapter/simulation.tex",
-			"settings":
-			{
-				"buffer_size": 32,
+				"buffer_size": 3523,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -621,8 +611,44 @@
 		"selected_items":
 		[
 			[
+				"anac",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"gra",
+				"git: graph"
+			],
+			[
 				"sta",
 				"git: status"
+			],
+			[
+				"git sta",
+				"git: status"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"build b",
+				"Build With: LaTeX - Basic Builder"
+			],
+			[
+				"re",
+				"File: Rename"
+			],
+			[
+				"bibl",
+				"Set Syntax: BibLaTeX"
+			],
+			[
+				"ren",
+				"File: Rename"
+			],
+			[
+				"build",
+				"Build With: LaTeX - PdfLaTeX"
 			],
 			[
 				"git ini",
@@ -631,10 +657,6 @@
 			[
 				"anf",
 				"ANF: New File"
-			],
-			[
-				"ren",
-				"File: Rename"
 			],
 			[
 				"latex build",
@@ -655,10 +677,6 @@
 			[
 				"ne",
 				"ANF: New File"
-			],
-			[
-				"git sta",
-				"git: status"
 			],
 			[
 				"add fol",
@@ -719,14 +737,6 @@
 			[
 				"selection",
 				"Compare selections"
-			],
-			[
-				"re",
-				"File: Rename"
-			],
-			[
-				"build",
-				"Build: Cancel"
 			],
 			[
 				"cop",
@@ -1053,10 +1063,6 @@
 				"Set Syntax: C++"
 			],
 			[
-				"packa",
-				"Package Control: List Packages"
-			],
-			[
 				"git lo",
 				"git: log"
 			],
@@ -1115,22 +1121,6 @@
 			[
 				"list pac",
 				"Package Control: List Packages"
-			],
-			[
-				"package control",
-				"Package Control: List Packages"
-			],
-			[
-				"ng",
-				"Set Syntax: nginx"
-			],
-			[
-				"ngi",
-				"Set Syntax: nginx"
-			],
-			[
-				"package lis",
-				"Package Control: List Packages"
 			]
 		],
 		"width": 546.0
@@ -1160,12 +1150,17 @@
 	"expanded_folders":
 	[
 		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman",
-		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter"
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/static"
 	],
 	"file_history":
 	[
-		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/raj_rao_newman.tex",
+		"/home/huguesvincent/.ipython/profile_default/ipython_config.py",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter/simulation.tex",
 		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter/generalisation.tex",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/b.bib",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/raj_rao_newman.pdf",
+		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/raj_rao_newman.tex",
 		"/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/biblio.bib",
 		"/home/huguesvincent/Documents/.txt/borg_dd.sh",
 		"/home/huguesvincent/.config/sublime-text-3/Packages/GoSublime/CHANGELOG.md",
@@ -1287,15 +1282,11 @@
 		"/home/huguesvincent/Downloads/cal/flat-university-timetable/css/style.css",
 		"/home/huguesvincent/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
 		"/home/huguesvincent/prog/javascript/week.html",
-		"/home/huguesvincent/prog/python/toto.py",
-		"/home/huguesvincent/prog/miscellaneous/elementaryOS-config-ASUS-X303LN/config.bash",
-		"/home/huguesvincent/Downloads/poisson/poisson.c",
-		"/home/huguesvincent/Documents/.txt/SublimeText.txt",
-		"/home/huguesvincent/Documents/.txt/finance.md"
+		"/home/huguesvincent/prog/python/toto.py"
 	],
 	"find":
 	{
-		"height": 22.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -1309,6 +1300,56 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"equation",
+			"v",
+			"-1",
+			"u",
+			"v}",
+			"u",
+			"equation",
+			"auto",
+			"the",
+			"theo",
+			"05",
+			"{n100d",
+			"n100",
+			"\\caption",
+			"label",
+			"hyperref",
+			"*",
+			"\\\\",
+			"itmated",
+			"0.6",
+			"p_{in} - p_{out}",
+			"ht",
+			"width=1.0\\linewidth",
+			"item",
+			"\\item",
+			"100$",
+			"\\caption{1a}",
+			"\\label",
+			"n100",
+			"0.9",
+			"[width=.8\\linewidth]",
+			" $",
+			" ",
+			"eq:3",
+			"&\\neq&",
+			"_",
+			"equation",
+			"sigma",
+			"rho",
+			"||",
+			"theor",
+			"_{max}",
+			"\\nonumber",
+			"\\mathbf{I}",
+			"soit",
+			"&",
+			"equation",
+			"\\noname",
+			"align*",
+			"theo",
 			"align",
 			"$",
 			"De ",
@@ -1331,29 +1372,35 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "chapter/model.tex",
+					"file": "raj_rao_newman.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3947,
+						"buffer_size": 1568,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3895,
-								3895
+								447,
+								447
 							]
 						],
 						"settings":
 						{
-							"SL.113.region_keys":
+							"SL.13.region_keys":
+							[
+							],
+							"SL.15.region_keys":
+							[
+							],
+							"SL.30.region_keys":
 							[
 							],
 							"bracket_highlighter.busy": false,
@@ -1362,10 +1409,83 @@
 							{
 								"close":
 								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
 									"1":
 									[
-										3842,
-										3843
+										446,
+										447
 									]
 								},
 								"icon":
@@ -1380,80 +1500,127 @@
 								{
 									"1":
 									[
-										3827,
-										3828
+										438,
+										439
 									]
 								},
 								"unmatched":
 								{
 								}
 							},
-							"bracket_highlighter.clone_regions":
+							"bracket_highlighter.regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
 							],
-							"bracket_highlighter.locations":
+							"git_gutter_is_enabled": true,
+							"git_savvy.repo_path": "/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman",
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "chapter/model.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12702,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11449,
+								11449
+							]
+						],
+						"settings":
+						{
+							"SL.113.region_keys":
+							[
+							],
+							"SL.14.region_keys":
+							[
+							],
+							"SL.15.region_keys":
+							[
+							],
+							"SL.16.region_keys":
+							[
+							],
+							"SL.31.region_keys":
+							[
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
 							{
 								"close":
 								{
 									"1":
 									[
-										3888,
-										3894
+										9817,
+										9822
 									]
 								},
 								"icon":
@@ -1468,9 +1635,82 @@
 								{
 									"1":
 									[
-										3835,
-										3841
+										8905,
+										8910
 									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
 								},
 								"unmatched":
 								{
@@ -1478,61 +1718,61 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
 							],
 							"git_gutter_is_enabled": true,
 							"git_savvy.repo_path": "/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman",
@@ -1540,426 +1780,67 @@
 							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1023.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "raj_rao_newman.tex",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 844,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								570,
-								570
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										569,
-										570
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"region.purplish"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										560,
-										561
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"git_gutter_is_enabled": true,
-							"git_savvy.repo_path": "/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman",
-							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1734,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								138,
-								138
-							]
-						],
-						"settings":
-						{
-							"__vi_external_disable": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
-							],
-							"default_dir": "/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman/chapter",
-							"git_gutter_is_enabled": false,
-							"git_savvy.help_hidden": false,
-							"git_savvy.interface": "status",
-							"git_savvy.repo_path": "/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman",
-							"git_savvy.status_view": true,
-							"git_savvy.tabbable": true,
-							"syntax": "Packages/GitSavvy/syntax/status.sublime-syntax",
-							"tab_size": 2
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 281.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 3,
-					"file": "chapter/simulation.tex",
+					"buffer": 2,
+					"file": "chapter/generalisation.tex",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 32,
+						"buffer_size": 3523,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								32,
-								32
+								3266,
+								3266
 							]
 						],
 						"settings":
 						{
+							"SL.15.region_keys":
+							[
+							],
+							"SL.32.region_keys":
+							[
+							],
+							"SL.42.region_keys":
+							[
+							],
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.clone": -1,
 							"bracket_highlighter.clone_locations":
 							{
 								"close":
 								{
+									"1":
+									[
+										1940,
+										1946
+									]
 								},
 								"icon":
 								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
 								},
 								"open":
 								{
+									"1":
+									[
+										1824,
+										1830
+									]
 								},
 								"unmatched":
 								{
@@ -1967,72 +1848,87 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
 							],
 							"bracket_highlighter.locations":
 							{
 								"close":
 								{
+									"1":
+									[
+										3516,
+										3522
+									]
 								},
 								"icon":
 								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"region.orangish"
+									]
 								},
 								"open":
 								{
+									"1":
+									[
+										3266,
+										3272
+									]
 								},
 								"unmatched":
 								{
@@ -2040,70 +1936,72 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content"
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
 							],
-							"git_gutter_is_enabled": false,
+							"git_gutter_is_enabled": true,
+							"git_savvy.repo_path": "/home/huguesvincent/Documents/cours/recherche/ecrit/raj_rao_newman",
+							"spell_check": true,
 							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 885.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -2111,7 +2009,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 22.0
+		"height": 23.0
 	},
 	"input":
 	{
@@ -2126,18 +2024,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -2147,6 +2038,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.GoSublime-main-output":
+	{
+		"height": 98.0
+	},
 	"output.SublimeLinter":
 	{
 		"height": 0.0
@@ -2167,11 +2062,15 @@
 	{
 		"height": 0.0
 	},
+	"output.show_commit_info":
+	{
+		"height": 98.0
+	},
 	"pinned_build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
 	"project": "raj_rao_newman.sublime-project",
 	"replace":
 	{
-		"height": 40.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -2180,6 +2079,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"ge",
+				"chapter/generalisation.tex"
+			],
+			[
+				"mode",
+				"chapter/model.tex"
+			],
 			[
 				"",
 				"chapter/ch2.tex"
@@ -2509,10 +2416,6 @@
 				"crm/templates/crm/crm.html"
 			],
 			[
-				"mode",
-				"accounts/models.py"
-			],
-			[
 				"model",
 				"accounts/models.py"
 			],
@@ -2687,10 +2590,6 @@
 			[
 				"homehtml",
 				"warm/templates/warm/home.html"
-			],
-			[
-				"crm.css",
-				"crm/static/crm/css/crm.css"
 			]
 		],
 		"width": 0.0
@@ -2698,7 +2597,7 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "manager",
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -2787,12 +2686,6 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		]
 	},
@@ -2800,7 +2693,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 171.0,
+	"side_bar_width": 213.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

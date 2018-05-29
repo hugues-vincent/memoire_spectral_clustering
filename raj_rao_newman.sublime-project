@@ -1,16 +1,31 @@
 {
+	"build_systems":
+	[
+		{
+			"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+			"name": "Anaconda Python Builder",
+			"selector": "source.python",
+			"shell_cmd": "\"python\" -u \"$file\""
+		}
+	],
 	"folders":
 	[
 		{
 			"path": "."
 		}
 	],
-    "settings" : {
-        "TEXroot": "raj_rao_newman.tex",
-        "tex_file_exts": [".tex", ".tikz"],
-        "builder_settings": {
-            "program": "xelatex",
-            "options": "--shell-escape"
-        }
-    }
+	"settings":
+	{
+		"TEXroot": "raj_rao_newman.tex",
+		"builder_settings":
+		{
+			"options": "--shell-escape",
+			"program": "xelatex"
+		},
+		"tex_file_exts":
+		[
+			".tex",
+			".tikz"
+		]
+	}
 }

@@ -3,8 +3,64 @@
 
 \subsection{SBM avec n communautés}
 
-On peut a présent généraliser ce modèle spectral à un nombre de communautés $q \geq 2$.
-Cependant, la validité du modèle se place dans le contexte des théorèmes \ref{th:1} et \ref{th:2}, c'est à dire qu'il y a une contrainte sur les valeurs des probabilités de la matrice d'adjacence $A$.
-En effet, d'après le \autoref{th:1}, pour que la matrice $X$ est une mesure spectral qui tend vers la loi de Wigner il faut que la norme 1 des vecteurs lignes de son profile de variance soient égales ($\parallel X_{i \cdot} \parallel_1 = \sum_{j=1}^{n}|X_{ij}|$).
-Par conséquent, si on veut augmenter le nombre de communautés $q$ dans le modèle, on est forcé de garder deux probabilités $p_{in}$ et $p_{out}$ qui jouent le même rôle que celles introduites précédemment (cf. \ref{rq:probability}).
-De plus les communautés doivent être de même tailles, à savoir $\frac{n}{q}$.
+On peut a présent généraliser à un nombre de communautés $q \geq 2$.
+Nous allons supposer que les communautés sont de même taille, à savoir $n_q = \frac{n}{q}$.
+\paragraph{}\label{rq:contrainte model}
+Une première contrainte apparaît, de par l'utilisation des théorèmes \ref{th:1} et \ref{th:2}, sur les valeurs des probabilités de la matrice d'adjacence $A$.
+En effet, d'après le \autoref{th:1}, pour que la matrice $X$ est une mesure spectrale qui tende vers la loi de Wigner il faut que la norme 1 des vecteurs lignes de son profile de variance soient égales ($\parallel x \parallel_1 = \sum_{j=1}^{n}|x_j|$).
+Par conséquent, si on veut augmenter le nombre de communautés $q$ dans le modèle, on est forcé de garder deux probabilités $p_{in}$ et $p_{out}$ qui jouent le même rôle que celles introduites précédemment (cf. \ref{rq:probability}).\\
+
+D'une manière générale on trouve que:
+\begin{align} 
+\langle A \rangle :&= n_q(p_{in} + (q-1)p_{out}) \mathbf{11}^T + n_q\frac{\sqrt{2(q-1)}}{\sqrt{q}}(p_{in}-p_{out})\sum_{i=1}^{q-1}\mathbf{u}_i\mathbf{u'}_i^T\\
+				   &= \frac{c_{in} + (q-1)c_{out}}{q} \mathbf{11}^T + \frac{\sqrt{2(q-1)}}{q\sqrt{q}}(c_{in}-c_{out})\sum_{i=1}^{q-1}\mathbf{u}_i\mathbf{u'}_i^T
+\end{align}
+avec
+\begin{align}
+\begin{bmatrix}
+\mathbf{1} & \mathbf{u}_1 & \cdots & \mathbf{u}_{q - 1}
+\end{bmatrix} 
+&=
+\begin{bmatrix}
+\frac{\mathbf{v}_1}{\parallel \mathbf{v}_1 \parallel} & \frac{\mathbf{v}_2}{\parallel \mathbf{v}_2 \parallel} & \cdots & \frac{\mathbf{v}_q}{\parallel \mathbf{v}_q \parallel}
+\end{bmatrix}\\
+\begin{bmatrix}
+\mathbf{1} & \mathbf{u'}_1 & \cdots & \mathbf{u'}_{q - 1}
+\end{bmatrix} 
+&=
+\begin{bmatrix}
+\frac{\mathbf{v'}_1}{\parallel \mathbf{v'}_1 \parallel} & \frac{\mathbf{v'}_2}{\parallel \mathbf{v'}_2 \parallel} & \cdots & \frac{\mathbf{v'}_q}{\parallel \mathbf{v'}_q \parallel}
+\end{bmatrix}
+\end{align}
+où 
+\begin{align*}
+\begin{bmatrix}
+\mathbf{v}_1 & \mathbf{v}_2 &  \cdots & \mathbf{v}_{q}
+\end{bmatrix} 
+&=
+\begin{bmatrix}
+1 & -1 & -1 & \cdots & -1 \\
+1 & 1 & 0 & \cdots & 0 \\
+\vdots & 0 & \ddots &  & \vdots \\
+\vdots & \vdots &  & \ddots & 0 \\
+1 & 0 & \cdots& \cdots & 1 \\
+\end{bmatrix} \otimes \mathbf{1}_{n_q} \in \mathit{M}_q \otimes \mathit{M}_{n_q\times1}=\mathit{M}_{n\times q}\\
+\begin{bmatrix}
+\mathbf{v'}_1 & \mathbf{v'}_2 &  \cdots & \mathbf{v'}_{q}
+\end{bmatrix} 
+&= \frac{1}{n}
+\begin{bmatrix}
+1 & -1 & -1 & \cdots & -1 \\
+1 & q -1 & -1 & \cdots & -1 \\
+\vdots & -1 & \ddots &  & \vdots \\
+\vdots & \vdots &  & \ddots & -1 \\
+1 & -1 & \cdots& \cdots & q-1 \\
+\end{bmatrix}\otimes \mathbf{1}_{n_q} \in \mathit{M}_q \otimes \mathit{M}_{n_q\times1}=\mathit{M}_{n\times q}\\
+\end{align*}
+\begin{align}
+\parallel \mathbf{v}_1 \parallel^2 &= \frac{1}{n} & \; & \langle \mathbf{1}  \:|\: \mathbf{u}_i  \rangle = 0 \;,\forall i\nonumber\\
+\parallel \mathbf{v}_i \parallel^2 &= \frac{2n}{q} & \; & \langle \mathbf{1} \:|\: \mathbf{u'}_i  \rangle = 0 \;,\forall i \\
+\parallel \mathbf{v'}_i \parallel^2 &= \frac{q - 1}{n} & \; & \langle \mathbf{u}_i\:|\: \mathbf{u'}_i  \rangle = \sqrt{\frac{q}{2(q-1)}} \;,\forall i\nonumber\\
+ \langle \mathbf{u}_i \:|\: \mathbf{u}_j  \rangle &= \frac{1}{2n} \;,\forall i \neq j & \; & \langle \mathbf{u'}_i \:|\: \mathbf{u'}_j  \rangle = \frac{1}{q - 1} \;,\forall i \neq j \nonumber\\
+\langle \mathbf{u}_i \:|\: \mathbf{u'}_j  \rangle &= 0 \;,\forall i \neq j \nonumber\\
+\end{align}
