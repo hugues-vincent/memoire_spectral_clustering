@@ -1,0 +1,69 @@
+\section{Motivations}
+\subsection{Introduction}
+La théorie des réseaux, à pour but d'analyser les graphes correspondants à des réseaux tels que celui de l'Internet, de la politique ou de la classification en biologie.
+Chacun de ces graphes ont des propriétés spécifiques telles que:
+\begin{itemize}
+ 	\item[-] Centrality ;
+ 	\item[-] ``small world effect'' ;
+ 	\item[-] Clustering ;
+ 	\item[-] Efficiency ;
+ 	\item[-] Degree distribution ; 
+ 	\item[-] Community Structure.\\
+ \end{itemize}
+ C'est cette dernière propriété qui va nous intéresser, à savoir la structure de communauté d'un graphe.
+ L'idée de communauté correspond à l'intuition selon laquelle il y a des nœuds qui ont un lien étroit et forment des sous ensembles de nœuds de ce graphe.
+ Par exemple dans le graphe des représentants politique Français, les hommes politiques d'un même partie appartiendrait à une même communauté.
+ Cependant, dans cette exemple les choses peuvent être plus subtiles que ça, c'est là qu'intervient la détection de communauté.
+
+\subsection{La détection de communauté}
+Il y a différentes classes de méthodes pour la détection de communauté, en voici une liste non exhaustive:
+\begin{itemize}
+	\item[A -] Graph partitioning
+	\item[B -] Hierarchical clustering
+	\item[C -] Partitional clustering
+	\item[D -] Spectral clustering \\
+\end{itemize}
+
+Les techniques qui nous intéressent sont celles du clustering spectrale.
+L'idée centrale de ce type de techniques est qu'un graphe est représentable par une matrice à partir de laquelle on peut utiliser les théories relatives à l'algèbre linéaire.
+
+Un graphe $G$ est la donnée d'un couple $(V, E)$ tel que $V$ est une ensemble de nœuds et $E$ et un ensemble d'arêtes (i.e un couple $(i,j)$ où $i,j \in V$).
+A partir de cette définition on peut représenter la graphe par une matrice dont les éléments correspondent à certaines données de $G$.
+Il existe toute un ensemble de matrices représentant le graphe:
+\begin{itemize}
+  	\item[-] A: Adjencency Matrix ;
+  	\item[-] L: Laplacian Matrix ;
+  	\item[-] M: Modularity Matrix ;
+  	\item[-] H: Bethe Hessian Matrix ;
+  	\item[-] D: "$\alpha$-normalized” Adjacency Matrix.\\
+\end{itemize}
+La matrice d'adjacence d'un graphe, notée $A$, est définie telle que $\forall i,j \in V, \; A_{ij} = \mathbbm{1}_{(i,j) \in E}$.
+Une colonne $i$ représente le nœud $i$ dont chaque composante, $j$, est égale à $1$ si il existe une arête entre $i$ et $j$ et $0$ sinon.\\
+La procédure pour associer une communauté aux nœuds de $G$ via une méthode spectrale est la suivante: 
+\begin{itemize}
+	\item[1-] Calcul des vecteurs propres, $v_i$, de la matrice de représentation du Graphe $G$ ;
+	\item[2-] Sélection des $l$ vecteurs propres portant l'information de la structure de communauté ; 
+	\item[3-] Construction de la matrice $W = [v_1, \cdots, v_l] \in \mathbb{R}^{n\times l}$ ; 
+	\item[4-] Projection des vecteur lignes $r_j$ de $W$ sur l'espace de dimension $l$, où chaque $r_j$ correspond  au nœud $j$ ; 
+	\item[5-] Catégorisation des vecteurs $r_j $ dans une communauté via des algorithmes de clustering: \textit{K-Means}, \textit{Expetation-Maximization}, \textit{Support vector machine }, etc.\\
+\end{itemize}
+
+\par{\underline{Étape 1:}}
+La matrice $A$ est carré, par conséquent elle peut être interprétée comme la représentation d'un endomorphisme dans un espace X de dimension $n$ (nombre de nœuds dans $G$).
+Soit la base canonique $(e_i)_{i=1:n}$, chaque $e_i$ correspond au nœud $i$.
+Les vecteurs propres de $A$ sont donc des combinaisons linéaires des nœuds de $G$.
+Les nœuds concernés ont donc une certaine dépendance.
+\par{\underline{Étape 2:}}
+Les entrées de la Matrice $A$ sont modélisées par des variables aléatoires vérifiant certaines hypothèses (e.g centrées, moments finis, indépendantes ...).
+La théorie des matrices aléatoires nous dit qu’asymptotiquement la mesure spectrale de A converge vers une loi déterministe $\mu$ (loi qui dépend de la matrice étudiée).
+Les valeurs propres de $A$ distribuées selon $\mu$ peuvent être interpréter comme des fluctuations de la simulation aléatoire.\\
+Cependant, lorsque le graphe admet une structure de communauté, les entrées ne sont plus tout à fait indépendantes.
+Dans ce cas de figure, la théorie prévoie que des valeurs propres sortent du support de la mesure spectrale $\mu$.
+Ce sont ces valeurs propres qui contiennent l'information de la structure de communauté de $G$.\\
+Une remarque importante à faire est la suivante, si la structure de communauté de $G$ n'est pas assez ``explicite'', les valeurs propres censées porter l'information de ces dernières ne sortiront pas du support de la mesure spectrale théorique, et donc, seront interprétées comme du simple bruit.
+Dans cette situation, la méthode spectrale est incapable de déceler la structure de communauté de $G$.
+\par{\underline{Étape 4:}}
+Les vecteurs colonnes de W correspondent à des combinaisons linéaires de nœuds.
+De par la construction A, les entrées $i$ de ces vecteurs colonnes sont la somme des arêtes entre ces nœuds en dépendance linaire et le nœud $i$.
+Les vecteurs propres que l'on a filtré sont ceux qui portent l'information des communautés.
+Donc chaque vecteur ligne représente un nœud du graphe et l'espace dans lequel il se meut constitue l'information de la structure de communauté. 

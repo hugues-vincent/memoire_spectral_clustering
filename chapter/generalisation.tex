@@ -1,8 +1,5 @@
 \section{Généralisation}
-\subsection{SBM avec 2 communautés de tailles différentes}
-
-\subsection{SBM avec n communautés}
-
+\subsection{Cas avec n communautés}
 On peut a présent généraliser à un nombre de communautés $q \geq 2$.
 Nous allons supposer que les communautés sont de même taille, à savoir $n_q = \frac{n}{q}$.
 \paragraph{}\label{rq:contrainte model}
@@ -117,7 +114,7 @@ Pour trouver les valeurs propres associées aux $\mathbf{u}_i\mathbf{u'}_i^T$ on
 \end{align}
 Si on remplace $q$ par $2$ on retrouve l'équation \eqref{z1}.\\
 Nous noterons $z1 =$ \eqref{eq:z1 generalize}  et $z2 =$ \eqref{eq:z2 generalize} pour la suite.
-Ces deux équations suffisent à retrouver les probabilités $p_{in}$ et $p_{out}$ du modèle à partir des valeurs propres empiriques (i.e calculées numériquement sur la matrice adjacente du graphe étudier.)\\
+Ces deux équations suffisent à retrouver les probabilités $p_{in}$ et $p_{out}$ du modèle à partir des valeurs propres empiriques (i.e calculées numériquement sur la matrice adjacente du graphe étudié.)\\
 
 % ------------------------------------------------- 4- trouver p_lim -------------------------------------------------
 Nous cherchons maintenant à déterminer $p_{lim}$.
@@ -148,6 +145,24 @@ Ci-dessous le bilan de la généralisation:
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.6]{static/graph_q7_n100_pin08_pout0011.png.png}
+\includegraphics[scale=0.6]{static/graph_q7_n100_pin08_pout0011.png}
 \caption{Graphe généré à partir des paramètres: $q=7$ $n=100$, $p_{in}=0.8$, $p_{out}=0.01$}
 \end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{static/spectral_q4_n500_pin08_pout02}
+\caption{$q=4$, $n=500$, $\Delta p=0.6$}
+\label{n500delta-05}
+\end{figure}
+\subsection{Limites du modèle}
+Le première limite de ce modèle est que l'on est cantonné à des communautés de même taille $n_q$.
+En effet si on change ce paramètre pour chacune des communautés alors le \autoref{th:1} n'est plus applicable, la somme des éléments de chaque vecteurs ligne du profile de variance n'est plus constant.\\
+
+La deuxième contrainte est le fait que l'on doit toujours garder deux paramètres $p_{in}$ et $p_{out}$ indépendamment du nombre de communautés $n_q$ et du nombre de nœuds dans le graphe $n$.
+Idéalement nous souhaiterions avoir un paramètre $p_{ij}$ correspondant à la probabilité d'avoir une arrête entre le nœud $i$ et le nœud $j$ et ce $\forall i<j$.\\
+Une manière d'encoder ces paramètres est d'utiliser la relation suivante $p_{ij} = q_iq_jC_{\alpha}$
+\begin{align}
+	p_{ij} &= q_iq_jC_{g_ig_j}
+\end{align}
+Où $q_i$ est la probabilité intrinsèque du nœud $i$ à avoir une arrête, $g_i$ est la communauté correspondant au nœud $i$ et $C_{g_ig_j}$ est le facteur de correction par communauté.\\
+Cette formalisation plus générale est très répandu dans la théorie de la détection de communauté spectrale.
