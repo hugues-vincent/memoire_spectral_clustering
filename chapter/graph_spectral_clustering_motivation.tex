@@ -1,5 +1,5 @@
-\section{Motivations}
-\subsection{Introduction}
+\section{La détection de communauté}
+\subsection{Motivations}
 La théorie des réseaux, à pour but d'analyser les graphes correspondants à des réseaux tels que celui de l'Internet, de la politique ou de la classification en biologie.
 Chacun de ces graphes ont des propriétés spécifiques telles que:
 \begin{itemize}
@@ -15,13 +15,13 @@ Chacun de ces graphes ont des propriétés spécifiques telles que:
  Par exemple dans le graphe des représentants politique Français, les hommes politiques d'un même partie appartiendrait à une même communauté.
  Cependant, dans cette exemple les choses peuvent être plus subtiles que ça, c'est là qu'intervient la détection de communauté.
 
-\subsection{La détection de communauté}
+\subsection{Spectral clustering}
 Il y a différentes classes de méthodes pour la détection de communauté, en voici une liste non exhaustive:
 \begin{itemize}
-	\item[A -] Graph partitioning
-	\item[B -] Hierarchical clustering
-	\item[C -] Partitional clustering
-	\item[D -] Spectral clustering \\
+	\item[-] Graph partitioning
+	\item[-] Hierarchical clustering
+	\item[-] Partitional clustering
+	\item[-] Spectral clustering \\
 \end{itemize}
 
 Les techniques qui nous intéressent sont celles du clustering spectrale.
@@ -31,17 +31,17 @@ Un graphe $G$ est la donnée d'un couple $(V, E)$ tel que $V$ est une ensemble d
 A partir de cette définition on peut représenter la graphe par une matrice dont les éléments correspondent à certaines données de $G$.
 Il existe toute un ensemble de matrices représentant le graphe:
 \begin{itemize}
-  	\item[-] A: Adjencency Matrix ;
-  	\item[-] L: Laplacian Matrix ;
-  	\item[-] M: Modularity Matrix ;
-  	\item[-] H: Bethe Hessian Matrix ;
-  	\item[-] D: "$\alpha$-normalized” Adjacency Matrix.\\
+  	\item[-]  Adjencency Matrix $= A$;
+  	\item[-]  Laplacian Matrix $= L$;
+  	\item[-]  Modularity Matrix $= M$;
+  	\item[-]  Bethe Hessian Matrix $= H$;
+  	\item[-]  "$\alpha$-normalized” Adjacency Matrix $= D$.\\
 \end{itemize}
-La matrice d'adjacence d'un graphe, notée $A$, est définie telle que $\forall i,j \in V, \; A_{ij} = \mathbbm{1}_{(i,j) \in E}$.
+Par exemple, la matrice d'adjacence d'un graphe, notée $A$, est définie telle que $\forall i,j \in V, \; A_{ij} = \mathbbm{1}_{(i,j) \in E}$.
 Une colonne $i$ représente le nœud $i$ dont chaque composante, $j$, est égale à $1$ si il existe une arête entre $i$ et $j$ et $0$ sinon.\\
 La procédure pour associer une communauté aux nœuds de $G$ via une méthode spectrale est la suivante: 
 \begin{itemize}
-	\item[1-] Calcul des vecteurs propres, $v_i$, de la matrice de représentation du Graphe $G$ ;
+	\item[1-] Calcul des vecteurs propres, $v_i$, d'une matrice représentant le Graphe $G$ ;
 	\item[2-] Sélection des $l$ vecteurs propres portant l'information de la structure de communauté ; 
 	\item[3-] Construction de la matrice $W = [v_1, \cdots, v_l] \in \mathbb{R}^{n\times l}$ ; 
 	\item[4-] Projection des vecteur lignes $r_j$ de $W$ sur l'espace de dimension $l$, où chaque $r_j$ correspond  au nœud $j$ ; 
@@ -64,6 +64,26 @@ Une remarque importante à faire est la suivante, si la structure de communauté
 Dans cette situation, la méthode spectrale est incapable de déceler la structure de communauté de $G$.
 \par{\underline{Étape 4:}}
 Les vecteurs colonnes de W correspondent à des combinaisons linéaires de nœuds.
-De par la construction A, les entrées $i$ de ces vecteurs colonnes sont la somme des arêtes entre ces nœuds en dépendance linaire et le nœud $i$.
-Les vecteurs propres que l'on a filtré sont ceux qui portent l'information des communautés.
+De par la construction de A, les entrées $i$ de ces vecteurs colonnes sont la somme des arêtes entre les nœuds sous-jacent et le nœud $i$.
+Les vecteurs propres que l'on a gardés sont ceux qui portent l'information des communautés.
 Donc chaque vecteur ligne représente un nœud du graphe et l'espace dans lequel il se meut constitue l'information de la structure de communauté. 
+
+\subsection{Perspectives}
+Les limites des modèles spectraux qui sont en développement pour la détection de communauté sont les suivantes:
+\begin{itemize}
+	\item[1-] Seuil à partir duquel la méthode spectrale n'est plus en mesure de détecter le communauté ;  
+	\item[2-] Temps de calcul sur de grands graphes;  
+	\item[3-] Raffinement des modèles de communautés.  
+\end{itemize}
+
+\subsection{Comparaison des performances}
+La notion de structure de communauté n'a pas de définition consensuel.
+Ceci est également vrai pour les métriques qui mesure les performance des différentes méthode.
+Ci-dessous une liste des métriques qui seront utilisées ultérieurement.
+Pour une liste complète voir \cite[p.77-79]{Community_detection_in_graphs}.
+\begin{itemize}
+	\item[-] Fraction of correctly classified vertices ; 
+	\item[-] Fowlkes and Mallows metric; 
+	\item[-] Rand Index; 
+	\item[-] Normalized Mutal Information; 
+\end{itemize}
