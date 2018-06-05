@@ -50,6 +50,7 @@ où $P1$, $P2$ sont des perturbations de rang 1 et $\langle A \rangle$ correspon
 
 Soit
 % ------------------------------------------------- equation (1) -------------------------------------------------
+\subsubsection*{1- Équation de $\langle A \rangle$}
 \begin{equation} 
 \langle A \rangle := \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T \label{eq:1}
 \end{equation}
@@ -60,6 +61,7 @@ c_{out} &= np_{out}\\
 \mathbf{1} &= (1, 1, \ldots)/\sqrt{n}\\
 \mathbf{u} &= (1, 1, \ldots, -1, -1, \ldots)/\sqrt{n}
 \end{align*}
+
 
 À présent \textbf{A} peut être écrite sous la forme $A = \langle A \rangle + X$.
 X est interprétable comme la déviation entre la matrice d'adjacence du graphe et sa moyenne.
@@ -73,13 +75,16 @@ X = A - \langle A \rangle\nonumber
 \begin{equation}
 	X_{ij} \sim \left\{
 	\begin{array}{lr}
-		B(p_{in}) - p_{in} & : (i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) \\
-		B(p_{out}) - p_{out} & : else \; where
+		B_{ij}(p_{in}) - p_{in} & : (i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) \\
+		B_{ij}(p_{out}) - p_{out} & : else \; where
 	\end{array}
 \right.\nonumber
 \end{equation}
+Où $B_{ij}(p) \sim B(p)$, $B(p)$ loi de Bernoulli de paramètre p et $B_{ij} = B_{ji}$\\
 
-% ------------------------------------------------- réécriture de X_ij -------------------------------------------------
+
+% ------------------------------------------------- 2- trouver X  -------------------------------------------------
+\subsubsection*{2- Profil de variance de $\frac{X}{\sqrt{n}}$}
 Nous aimerions modifier la forme des entrées $X_{ij}$ en $\sigma_{ij} Z_{ij}$, où $Z_{ij}$ est une variable aléatoire centrée réduite, afin de nous ramener à des théorèmes connus.
 
 Pour $(i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) $ on a:
@@ -107,6 +112,12 @@ Où $Z_{ij} = \frac{B(p) - p}{\sqrt{p(1-p)}} \;\;avec \; p = p_{in} \lor p_{out}
 % ------------------------------------------------- théorème 1 -------------------------------------------------
 Le théorème de Wigner ne fonctionne que pour les matrices à entrées iid, or l'écart type est dépendant des indices de la matrice.
 Cependant il existe un théorème pour notre cas.
+\begin{mydef}
+Soit $W \in M_{n}(\mathbb{R})$, $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) = \sigma_{ij}^2< \infty$\\
+
+Le profile de variance de $W$ est la matrice $V=\left\{ \sigma_{ij}^2 \right\}_{i,j=1}^n$
+\end{mydef}
+
 \begin{theorem}\label{th:1}
 Soit $W \in M_{n}(\mathbb{R})$, $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$
 
