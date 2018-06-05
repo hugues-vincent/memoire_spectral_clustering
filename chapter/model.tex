@@ -130,8 +130,7 @@ Alors si on note la mesure spectrale de $\frac{W}{\sqrt{n}}$, $L_{n}$  et $\math
 Soit $V$ le profil de variance de $\frac{X}{\sqrt{n}}$. $\forall i = 1:n$ on a: 
 \begin{align*} 
 \sigma_{i \cdot}^2 &= \sum_{j=1}^{n}V_{ij}  \\
- 		&= \frac{\sigma_{in}^2 + \sigma_{out}^2}{2}  \\
-		&=\sigma^2
+ 		&= \boxed{\frac{\sigma_{in}^2 + \sigma_{out}^2}{2} = \sigma^2}
 \end{align*}
 Si on note $\rho(x)$ la densité spectrale de $\frac{X}{\sqrt{n}}$ on a;
 \begin{equation}
@@ -231,16 +230,18 @@ Donc
 D'après ce modèle, plus on a de noeuds dans le graphe, plus on a de l'information, et donc moins on a de chance de tomber sur cet intervalle d’indécidabilité.\\
 
 \subsection{Bilan}
-Ci-dessous un tableau comparatif entre les résultats obtenus et ceux de l'article.
+Ci-dessous un tableau comparatif entre les résultats obtenus et ceux de l'article \cite{raj_rao}.
 L'essence de la divergence intervient lorsque qu'il est défini que $\mathbb{V}(X_{ij}) = \frac{(c_{in} + c_{out})}{2n}$.
-\underline{À gauche}: les résultats de l'article original; \underline{À droite}: les résultats obtenus ci-dessus:
+Nous avons normalisé les équations de l'article original par $\frac{1}{\sqrt{n}}$ afin de pouvoir les comparer avec nos résultats.\\
+\underline{Rappel}: $\sigma_{in}^2=p_{in}(1-p_{in})$ ; $\sigma_{out}^2=p_{out}(1-p_{out})$ ; $c_{in} = np_{in}$ ; $c_{out} = p_{out}$
+
 \renewcommand{\arraystretch}{2}
-\begin{table}
+\begin{table}[h]
 	\centering
     \begin{tabular}{|l|l|l|}
     \hline
       &  Résultats de l'article  &  Résultats obtenus \\ \hline
-    $\rho (z)$  &  $\frac{n}{\pi}\frac{\sqrt{(2(c_{in} + c_{out}) - x^2)_+}}{\pi(c_{in} + c_{out})}$&  $\frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}$\\ \hline
+    $\rho (z)$  &  $\frac{n}{\pi}\frac{\sqrt{(2(c_{in} + c_{out}) - x^2)_+}}{(c_{in} + c_{out})}$&  $\frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}$\\ \hline
     $\sigma^2$ &  $\frac{c_{in} + c_{out}}{2n}$ &  $\frac{\sigma_{in}^2 + \sigma_{out}^2}{2}$ \\ \hline
     $z_1$&  $\frac{c_{in}-c_{out}}{2} + \frac{c_{in}+c_{out}}{c_{in}-c_{out}}$ &  $\frac{c_{in}-c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}-c_{out}}$\\ \hline
     $z_2$&  $\frac{c_{in}+c_{out}}{2} + 1$ &  $\frac{c_{in}+c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}+c_{out}}$\\ \hline
@@ -248,5 +249,6 @@ L'essence de la divergence intervient lorsque qu'il est défini que $\mathbb{V}(
     \end{tabular}
 \end{table}
 
-
-
+Les résultats quantitatifs empiriques que nous avons obtenu sont différents de ceux de l'article de référence.
+Au contraire, les simulations corroborent les formules trouvées ci-dessus.
+Nous le verrons  plus précisément dans la section suivante.   
