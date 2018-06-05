@@ -11,11 +11,7 @@ Le but de ce papier est d'expliquer en détail la méthode de détection de comm
 C'est un article qui décrit les limites d'un modèle spectral dans un cadre spécifique à deux communautés.
 
 Nous allons nous placer dans le contexte d'un Stochastic Block Model (SBM) à deux communautés (i.e \textbf{q}=2).
-Autrement dit, dans un graphe \textbf{G} non orienté à \textbf{n} noeuds dont la probabilité d'existence d'une arête entre deux noeuds est la suivante:
-\begin{itemize}\label{rq:probability}
-    \item[Même communauté:] $\mathbf{p_{in}}$  
-    \item[Différentes communautés:] $\mathbf{p_{out}}$\\
-\end{itemize}
+C'est un graphe \textbf{G} non orienté à \textbf{n} nœuds dont chaque arête entre deux nœuds suit une loi de Bernoulli de paramètre $p_{in}$ si les nœuds appartiennent à la même communauté et $p_{out}$ si les nœuds ne sont pas dans la même communauté.  
 
 Nous noterons \textbf{A} la matrice d'adjacence du graphe \textbf{G}.
 Elle est symétrique de par le fait que le graphe soit non orienté.
@@ -26,7 +22,7 @@ Chaque élément de la matrice \textbf{A} est simulé par une loi de Bernoulli a
 \begin{equation} 
  A_{ij} \sim \left\{
   \begin{array}{lr}
-    B(p_{in}) & : (i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) \\
+    B(p_{in}) & : (i,j < \frac{n}{2}) \; ou \; (i,j \ge \frac{n}{2}) \\
     B(p_{out}) & : else \; where
   \end{array}
 \right.\nonumber
@@ -38,19 +34,19 @@ A_{ij} = A_{ji}\nonumber
 
 \subsection{Analyse spectrale de la matrice d'adjacence \textbf{A}}\label{ch:Analyse spectrale de la matrice d'adjacence}
 L'idée générale de l'analyse spectrale qui va suivre est de nous ramener à un régime spectral de grande matrices aléatoires connu. 
-Dans notre cas, nous verrons que le régime associé à notre matrice d'adjacence (SBM $\textbf{q}=2$) est celui du théorème de \textit{Wigner} avec perturbations de rang 1.
+Dans notre cas, nous verrons que le régime associé à notre matrice d'adjacence (SBM $\textbf{q}=2$) est celui du théorème de \textit{Wigner} avec perturbation de rang fini.
 La trame sera la suivante:
 \begin{itemize}
  	\item[1-] réécriture de la matrice $A = \langle A \rangle + X$;
  	\item[2-] étude de la mesure spectrale de X;
- 	\item[3-] étude de la mesure spectrale de B tel que $B = X + P1$;
- 	\item[4-] étude de la mesure spectrale de $A = B + P2 = X + P1 + P2$.
+ 	\item[3-] étude de la mesure spectrale de B tel que $B = X + P_1$;
+ 	\item[4-] étude de la mesure spectrale de $A = B + P_2 = X + P_1 + P_2$.
  \end{itemize} 
-où $P1$, $P2$ sont des perturbations de rang 1 et $\langle A \rangle$ correspond à la moyenne de A du SBM.\\
+où $P_1$, $P_2$ sont des perturbations de rang 1 et $\langle A \rangle$ correspond à la moyenne de A du SBM.\\
 
-Soit
 % ------------------------------------------------- equation (1) -------------------------------------------------
 \subsubsection*{1- Équation de $\langle A \rangle$}
+Soit
 \begin{equation} 
 \langle A \rangle := \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T \label{eq:1}
 \end{equation}
@@ -59,13 +55,14 @@ Avec
 c_{in} &= np_{int} \\
 c_{out} &= np_{out}\\
 \mathbf{1} &= (1, 1, \ldots)/\sqrt{n}\\
-\mathbf{u} &= (1, 1, \ldots, -1, -1, \ldots)/\sqrt{n}
+\mathbf{u} &= (1, 1, \ldots, -1, -1, \ldots)/\sqrt{n}\\
+\langle\mathbf{1}|\mathbf{u}\rangle &= 0
 \end{align*}
 
 
 À présent \textbf{A} peut être écrite sous la forme $A = \langle A \rangle + X$.
-X est interprétable comme la déviation entre la matrice d'adjacence du graphe et sa moyenne.
-X est par définition une matrice aléatoire symétrique à entrées indépendantes et de moyenne 0.
+La matrice X est interprétable comme la déviation entre la matrice d'adjacence du graphe et sa moyenne.
+La matrice X est par définition une matrice aléatoire symétrique à entrées indépendantes et de moyenne 0.
 Essayons d'analyser sa mesure spectrale.
 On a 
 
@@ -73,7 +70,7 @@ On a
 X = A - \langle A \rangle\nonumber
 \end{equation}
 \begin{equation}
-	X_{ij} \sim \left\{
+	X_{ij}  = \left\{
 	\begin{array}{lr}
 		B_{ij}(p_{in}) - p_{in} & : (i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) \\
 		B_{ij}(p_{out}) - p_{out} & : else \; where
@@ -110,10 +107,10 @@ finalement on obtient
 Où $Z_{ij} = \frac{B(p) - p}{\sqrt{p(1-p)}} \;\;avec \; p = p_{in} \lor p_{out}$\\
 
 % ------------------------------------------------- théorème 1 -------------------------------------------------
-Le théorème de Wigner ne fonctionne que pour les matrices à entrées iid, or l'écart type est dépendant des indices de la matrice.
-Cependant il existe un théorème pour notre cas.
+Le théorème de Wigner ne fonctionne que pour les matrices à entrées iid. 
+Il existe un théorème lorsque le profil de variance de la matrice aléatoire étudié est stochastique.
 \begin{mydef}
-Soit $W \in M_{n}(\mathbb{R})$, $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) = \sigma_{ij}^2< \infty$\\
+Soit $W \in M_{n}(\mathbb{R})$ (ensemble de matrices carrée de dimension $n \times n$), $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) = \sigma_{ij}^2< \infty$\\
 
 Le profile de variance de $W$ est la matrice $V=\left\{ \sigma_{ij}^2 \right\}_{i,j=1}^n$
 \end{mydef}
@@ -141,12 +138,14 @@ Si on note $\rho(x)$ la densité spectrale de $\frac{X}{\sqrt{n}}$ on a;
 	\rho(x) = \frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}
 \end{equation}
 
+% ------------------------------------------------- 3- étude de B  -------------------------------------------------
+\subsubsection*{3- étude de la mesure spectrale de $B$}
 Dans la suite de l'étude nous noterons B la matrice de modularité telle que 
 \begin{align*} 
 B :&= X + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T \\
 \frac{B}{\sqrt{n}} &= \frac{X}{\sqrt{n}} + \frac{1}{2\sqrt{n}}(c_{in} - c_{out})\mathbf{uu}^T\\
 \end{align*}
-Soit v le vecteur propre de $\frac{B}{\sqrt{n}}$ de $\lambda_{max}$ et soit $\Gamma = \frac{X}{\sqrt{n}}$
+Soit v le vecteur propre de $\frac{B}{\sqrt{n}}$ associé à $\lambda_{max}$ et soit $\Gamma = \frac{X}{\sqrt{n}}$
 
 \begin{align} 
 \frac{B}{\sqrt{n}}\mathbf{v} &= \lambda_{max}\mathbf{v} \nonumber\\
@@ -157,6 +156,7 @@ Soit v le vecteur propre de $\frac{B}{\sqrt{n}}$ de $\lambda_{max}$ et soit $\Ga
 
 % ------------------------------------------------- Théorème de Wigner isotrope -------------------------------------------------
 \begin{theorem}[Théorème de Wigner isotrope]\label{th:2}
+
 Soit $W \in M_{n}(\mathbb{R})$, telle que $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$, W à un profil de variance V tel que $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$ pour $\sigma \in \mathbb{R}$\\
 Soit $Q(z)$ la résolvante de W
 \begin{align*} 
@@ -165,11 +165,13 @@ Q(z) = (W - zI)^{-1}\\
 Soient $\mathbf{u}$, $\mathbf{v}$ des vecteurs déterministes tels que $\|\mathbf{u}\|, \|\mathbf{v}\| < \infty$.\\
 Alors 
 \begin{align*} 
-\mathbf{u}^*Q(z)\mathbf{v} - \langle \mathbf{u}, \mathbf{v} \rangle g_{wig}^{\sigma^2} \xrightarrow[n \to +\infty]{} 0\\
+\mathbf{u}^*Q(z)\mathbf{v} - \langle \mathbf{u}, \mathbf{v} \rangle g_{wig}^{\sigma^2}(z) \xrightarrow[n \to +\infty]{} 0\\
 \end{align*}
-où $g_{wig}^{\sigma^2}$ est la transformé de Stieltjes de la loi de Wigner associé au paramètre $\sigma^2$\\
+où $g_{wig}^{\sigma^2}$ est la transformé de Stieltjes de la loi de Wigner de paramètre $\sigma^2$ qui satisfait l'équation
+\begin{equation}
+	\sigma^2g_{wig}^{\sigma^2}(z)^2+\lambda_{max}g_{wig}^{\sigma^2}(z)+1=0
+\end{equation}
 \end{theorem}
-
 Reprenons l’équation \eqref{eq:3}, en appliquant le Théorème de Wigner isotrope et en s'assurant que tous les termes de droite convergent, nous avons:
 \begin{align*}
 \mathbf{u^T}(\Gamma - \lambda_{max}I)^{-1}\mathbf{u} \xrightarrow[n \to +\infty]{} g_{wig}^{\sigma^2}(\lambda_{max})
@@ -182,10 +184,10 @@ Donc
 \begin{align}
 	\eqref{eq:3} &\Leftrightarrow1 = -\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) g_{wig}^{\sigma^2}(\lambda_{max}) \nonumber\\
 	&\Leftrightarrow 1 = -\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) \frac{- \lambda_{max} - \sqrt{(\lambda_{max}^2 - 4\sigma^2)}}{2\sigma^2} \nonumber\\
-	&\Leftrightarrow \lambda_{max} = \frac{(c_{in} - c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}} \label{z_1}
+	&\Leftrightarrow \boxed{\lambda_{max}=\frac{(c_{in} - c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}}} \label{z_1}
 \end{align}
 
-de plus $\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) = \mathcal{O}(\sqrt(n))$ et $\sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}} =  \mathcal{O}(\frac{1}{\sqrt(n)})$\\
+de plus $\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) = \mathcal{O}(\sqrt{n})$ et $\sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}} =  \mathcal{O}\left(\frac{1}{\sqrt{n}}\right)$\\
  
 Comme $A = X + \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T$ et $\langle\mathbf{u}, \mathbf{1}\rangle = 0 \; \|\mathbf{u}\|=\|\mathbf{v}\|=1$ on a
 \begin{align}
@@ -194,22 +196,22 @@ Comme $A = X + \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} -
 	&\Leftrightarrow \mathbf{1^Tv} = -\alpha\mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{11}^T\mathbf{v} - \beta \mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{uu}^T\mathbf{v} \nonumber\\
 	&\xrightarrow[n \to +\infty]{} 1 = -\alpha g_{wig}^{\sigma^2}(\lambda) \nonumber\\
 	&\Leftrightarrow 1 = -\alpha  \frac{- \lambda - \sqrt{(\lambda^2 - 4\sigma^2)}}{2\sigma^2}\nonumber\\
-	&\Leftrightarrow \lambda = \frac{(c_{in} + c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} + c_{out}} \label{z_2}
+	&\Leftrightarrow \boxed{\lambda = \frac{(c_{in} + c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} + c_{out}}} \label{z_2}
 \end{align} 
 
 On a finalement une matrice A qui est la somme d'une matrice aléatoire X et de deux perturbations de rang 1.
 De fait, la mesure spectrale de A à deux valeurs propres qui sortent du support de la distribution de Wigner, à savoir $\lambda_{max}$ et $\lambda$.
-Par la suite nous noterons $z_1 = \lambda_{max}$ et $z_2 = \lambda$
+Par la suite nous noterons $z_1 = \lambda_{max}$ et $z_2 = \lambda$, et nous appellerons ``bulk'' le support de la mesure spectrale $\rho(z)$.
 
 \subsection{Interprétation des résultats obtenus}
 \label{subsec:1.3}
-On sait que si $p_{in} - p_{out} \le 0$  le graphe n'admet pas de structure de communauté.
-De plus notre détection spectral nous dit que si la plus grande valeur propre sort du support de $\rho(z)$ alors il le graphe admet une structure de communauté.
-La borne droite du support est $\lambda^+ = 2\sigma = \sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}$.
+Si les 2 plus petites valeurs propres sont inférieur au bord gauche du bulk (ici $\lambda^- = -2\sigma$) alors le graphe admet une structure de communauté ``disassortative''.
+Si les 2 plus grandes valeurs propres sont supérieur au bord droit du bulk (ici $\lambda^+ = 2\sigma$) alors le graphe admet une structure de communauté ``assortative''.
+Si $0$ ou $1$ valeur propre sort du bulk alors la méthode spectrale ne peut rien conclure sur la structure de communauté du graphe G.\\
 
-Dans la mesure où  $\lambda^+$ est positif ou nul, lorsque $p_{in} - p_{out} \in [0, p_{lim}]$ alors la méthode spectrale est incapable de conclure.\\
+Nous cherchons à déterminer $p_{lim} = p_{in} - p_{out}$, qui est la condition limite supérieur sur les paramètres du SBM pour que l'algorithme puisse détecter la structure de communauté ``assortative'' du graphe G.
+Dans la mesure où  $\lambda^+$ est positif ou nul, lorsque $p_{in} - p_{out} \in [0, p_{lim}]$ alors la méthode spectrale est incapable de conclure sur la structure ``assortative''.\\
  
-Nous cherchons à déterminer $p_{lim}$.
 La condition limite naturelle est celle où la valeur propre maximale est égale au bord droit du support de la mesure spectrale de la matrice A.
 On a alors 
 \begin{align*}
@@ -218,27 +220,33 @@ On a alors
 	&\Leftrightarrow \sqrt{2S} = \alpha + \beta S\\
 	&\Leftrightarrow 2S = \alpha^2 + 2\alpha \beta S +\beta^2 S^2\\
 	&\Leftrightarrow 0 = \beta^2 S^2 + 2(\alpha \beta - 1)S+ \alpha^2 \\
-	&\text{après résolution de l'équation on obtient une unique solution}\\
 	&\Leftrightarrow p_{in} - p_{out} = \frac{\sqrt{2(\sigma_{in}^2 + \sigma{out}^2)}}{\sqrt{n}}  \\
 \end{align*}
 Donc
 \begin{equation}
-	p_{lim} = \frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}= \frac{2\sigma}{\sqrt{n}}  \\
+	\boxed{p_{lim} = \frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}= \frac{2\sigma}{\sqrt{n}} = \mathcal{O}\left(\frac{1}{\sqrt{n}}\right)}\\
 \end{equation}
 
 \paragraph{}\label{rq:ngrand}
 D'après ce modèle, plus on a de noeuds dans le graphe, plus on a de l'information, et donc moins on a de chance de tomber sur cet intervalle d’indécidabilité.\\
 
+\subsection{Bilan}
 Ci-dessous un tableau comparatif entre les résultats obtenus et ceux de l'article.
 L'essence de la divergence intervient lorsque qu'il est défini que $\mathbb{V}(X_{ij}) = \frac{(c_{in} + c_{out})}{2n}$.
 \underline{À gauche}: les résultats de l'article original; \underline{À droite}: les résultats obtenus ci-dessus:
+\renewcommand{\arraystretch}{2}
+\begin{table}
+	\centering
+    \begin{tabular}{|l|l|l|}
+    \hline
+      &  Résultats de l'article  &  Résultats obtenus \\ \hline
+    $\rho (z)$  &  $\frac{n}{\pi}\frac{\sqrt{(2(c_{in} + c_{out}) - x^2)_+}}{\pi(c_{in} + c_{out})}$&  $\frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}$\\ \hline
+    $\sigma^2$ &  $\frac{c_{in} + c_{out}}{2n}$ &  $\frac{\sigma_{in}^2 + \sigma_{out}^2}{2}$ \\ \hline
+    $z_1$&  $\frac{c_{in}-c_{out}}{2} + \frac{c_{in}+c_{out}}{c_{in}-c_{out}}$ &  $\frac{c_{in}-c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}-c_{out}}$\\ \hline
+    $z_2$&  $\frac{c_{in}+c_{out}}{2} + 1$ &  $\frac{c_{in}+c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}+c_{out}}$\\ \hline
+    $p_{lim}$&  $\frac{\sqrt{2(c_{in} - c_{out})}}{\sqrt{n}}$ &  $\frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}$\\ \hline
+    \end{tabular}
+\end{table}
 
-\begin{align*}
-	\rho (z)&: \frac{n}{\pi}\frac{\sqrt{(2(c_{in} + c_{out}) - x^2)_+}}{\pi(c_{in} + c_{out})} &\;& \frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}\\
-	\sigma^2&: \frac{c_{in} + c_{out}}{2n} &\;& \frac{\sigma_{in}^2 + \sigma_{out}^2}{2} \\
-	z_1&: \frac{c_{in}-c_{out}}{2} + \frac{c_{in}+c_{out}}{c_{in}-c_{out}} &\;& \frac{c_{in}-c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}-c_{out}}\\
-	z_2&: \frac{c_{in}+c_{out}}{2} + 1 &\;& \frac{c_{in}+c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}+c_{out}}\\
-	p_{lim}&: \frac{\sqrt{2(c_{in} - c_{out})}}{\sqrt{n}}&\;& \frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}\\
-\end{align*}
 
 

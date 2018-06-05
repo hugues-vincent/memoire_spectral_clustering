@@ -17,7 +17,11 @@
 \usepackage{amsmath}
 \usepackage{bbm}
 \usepackage{blkarray}
- \geometry{
+\usepackage{empheq}
+
+\newlength\dlf  % Define a new measure, dlf
+\newcommand\alignedbox[2]{& {\settowidth\dlf{$\displaystyle #1$}\addtolength\dlf{\fboxsep+\fboxrule}\hspace{-\dlf}\boxed{#1 #2}}}
+\geometry{
  a4paper,
  total={170mm,257mm},
  left=20mm,

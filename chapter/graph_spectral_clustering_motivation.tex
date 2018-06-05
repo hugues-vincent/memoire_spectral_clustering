@@ -39,6 +39,8 @@ Il existe toute un ensemble de matrices représentant le graphe:
 \end{itemize}
 Par exemple, la matrice d'adjacence d'un graphe, notée $A$, est définie telle que $\forall i,j \in V, \; A_{ij} = \mathbbm{1}_{(i,j) \in E}$.
 Une colonne $i$ représente le nœud $i$ dont chaque composante, $j$, est égale à $1$ si il existe une arête entre $i$ et $j$ et $0$ sinon.\\
+
+\subsubsection*{Algorithme de clustering spectral de graphe}
 La procédure pour associer une communauté aux nœuds de $G$ via une méthode spectrale est la suivante: 
 \begin{itemize}
 	\item[1-] Calcul des vecteurs propres, $v_i$, d'une matrice représentant le Graphe $G$ ;
