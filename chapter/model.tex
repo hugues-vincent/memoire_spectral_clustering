@@ -19,7 +19,7 @@ Nous supposerons d'ailleurs, que ses éléments sont rangés dans l'ordre de leu
 Dans notre cas avec \textbf{q}=2, les $\mathbf{n}/2$ premières lignes correspondent aux noeuds de la communauté 1, et les $\mathbf{n}/2$ dernières la communauté 2.
 Même chose pour les colonnes, par symétrie de \textbf{A}.
 Chaque élément de la matrice \textbf{A} est simulé par une loi de Bernoulli avec: 
-\begin{equation} 
+\begin{equation}\label{rq:probability}
  A_{ij} \sim \left\{
   \begin{array}{lr}
     B(p_{in}) & : (i,j < \frac{n}{2}) \; ou \; (i,j \ge \frac{n}{2}) \\
@@ -109,22 +109,24 @@ Où $Z_{ij} = \frac{B(p) - p}{\sqrt{p(1-p)}} \;\;avec \; p = p_{in} \lor p_{out}
 % ------------------------------------------------- théorème 1 -------------------------------------------------
 Le théorème de Wigner ne fonctionne que pour les matrices à entrées iid. 
 Il existe un théorème lorsque le profil de variance de la matrice aléatoire étudié est stochastique.
-\begin{mydef}
-Soit $W \in M_{n}(\mathbb{R})$ (ensemble de matrices carrée de dimension $n \times n$), $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) = \sigma_{ij}^2< \infty$\\
-
-Le profile de variance de $W$ est la matrice $V=\left\{ \sigma_{ij}^2 \right\}_{i,j=1}^n$
-\end{mydef}
-
 \begin{theorem}\label{th:1}
-Soit $W \in M_{n}(\mathbb{R})$, $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$
-
-Si le profil de variance de $\frac{W}{\sqrt{n}}$, $V$, est telle que $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$ pour $\sigma \in \mathbb{R}$
-
-Alors si on note la mesure spectrale de $\frac{W}{\sqrt{n}}$, $L_{n}$  et $\mathbb{P}_{wig}$ la mesure associé à la distribution $f_{wig}(x)= \frac{\sqrt{(4\sigma^2 - x^2)_+}}{2\pi\sigma^2}$ on a:
+Soit $W \in M_{n}(\mathbb{R})$, $W_{ij}$ sont des variables aléatoires réels\\
+On suppose que les $(W_{ij})_{i \leq j}$ sont indépendantes telles que $\mathbb{E}(W_{ij}) = 0$, $\sigma_{ij}^2 = \mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$\\
+On appelle profil de variance la matrice symétrique
+\begin{align*}
+	\tilde V_n = (\sigma_{ij}^2)_{1 \leq i,j \leq n}
+\end{align*}
+et profil de variance normalisé 
+\begin{align*}
+	V_n = \left(\frac{\sigma_{ij}^2}{n}\right)_{1 \leq i,j \leq n}
+\end{align*}
+On suppose que $V_n$ est stochastique: $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$\\
+Alors la mesure spectrale $L_{n}$ de $\frac{W}{\sqrt{n}}$ vérifie
 
 \begin{equation}
-	L_n\xrightarrow[n \to +\infty]{etr} \mathbb{P}_{wig}\nonumber
+	L_n\xrightarrow[n \to +\infty]{etr} \mathbb{P}_{wig}\nonumber \; p.s
 \end{equation}\\
+où $\mathbb{P}_{wig}$ est la loi de Wigner de densité $f_{wig}(x)= \frac{\sqrt{(4\sigma^2 - x^2)_+}}{2\pi\sigma^2}$
 \end{theorem}
 
 Soit $V$ le profil de variance de $\frac{X}{\sqrt{n}}$. $\forall i = 1:n$ on a: 
@@ -236,19 +238,19 @@ Nous avons normalisé les équations de l'article original par $\frac{1}{\sqrt{n
 \underline{Rappel}: $\sigma_{in}^2=p_{in}(1-p_{in})$ ; $\sigma_{out}^2=p_{out}(1-p_{out})$ ; $c_{in} = np_{in}$ ; $c_{out} = p_{out}$
 
 \renewcommand{\arraystretch}{2}
-\begin{table}[h]
+\begin{table}[h] 
+	\label{tab:bilan}
 	\centering
     \begin{tabular}{|l|l|l|}
     \hline
       &  Résultats de l'article  &  Résultats obtenus \\ \hline
-    $\rho (z)$  &  $\frac{n}{\pi}\frac{\sqrt{(2(c_{in} + c_{out}) - x^2)_+}}{(c_{in} + c_{out})}$&  $\frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}$\\ \hline
-    $\sigma^2$ &  $\frac{c_{in} + c_{out}}{2n}$ &  $\frac{\sigma_{in}^2 + \sigma_{out}^2}{2}$ \\ \hline
-    $z_1$&  $\frac{c_{in}-c_{out}}{2} + \frac{c_{in}+c_{out}}{c_{in}-c_{out}}$ &  $\frac{c_{in}-c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}-c_{out}}$\\ \hline
-    $z_2$&  $\frac{c_{in}+c_{out}}{2} + 1$ &  $\frac{c_{in}+c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}+c_{out}}$\\ \hline
-    $p_{lim}$&  $\frac{\sqrt{2(c_{in} - c_{out})}}{\sqrt{n}}$ &  $\frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}$\\ \hline
+    $\rho (z)$  &  $\frac{1}{\pi\sqrt{n}}\frac{\sqrt{(2(c_{in} + c_{out}) - x^2)_+}}{(c_{in} + c_{out})}$&  $\frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}$\\ \hline
+    $z_1$&  $\frac{c_{in}-c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{c_{in}+c_{out}}{c_{in}-c_{out}}$ &  $\frac{c_{in}-c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}-c_{out}}$\\ \hline
+    $z_2$&  $\frac{c_{in}+c_{out}}{2\sqrt{n}} + \sqrt{n}$ &  $\frac{c_{in}+c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}+c_{out}}$\\ \hline
+    $p_{lim}$&  $\frac{\sqrt{2(c_{in} - c_{out})}}{n}$ &  $\frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}$\\ \hline
     \end{tabular}
 \end{table}
 
 Les résultats quantitatifs empiriques que nous avons obtenu sont différents de ceux de l'article de référence.
 Au contraire, les simulations corroborent les formules trouvées ci-dessus.
-Nous le verrons  plus précisément dans la section suivante.   
+Nous le verrons plus précisément dans la section suivante.   
