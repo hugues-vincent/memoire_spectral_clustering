@@ -119,7 +119,7 @@ Alors si on note la mesure spectrale de $\frac{W}{\sqrt{n}}$, $L_{n}$  et $\math
 \end{equation}\\
 \end{theorem}
 
-Soit $V$ le profile de variance de $\frac{X}{\sqrt{n}}$. $\forall i = 1:n$ on a: 
+Soit $V$ le profil de variance de $\frac{X}{\sqrt{n}}$. $\forall i = 1:n$ on a: 
 \begin{align*} 
 \sigma_{i \cdot}^2 &= \sum_{j=1}^{n}V_{ij}  \\
  		&= \frac{\sigma_{in}^2 + \sigma_{out}^2}{2}  \\
@@ -146,7 +146,7 @@ Soit v le vecteur propre de $\frac{B}{\sqrt{n}}$ de $\lambda_{max}$ et soit $\Ga
 
 % ------------------------------------------------- Théorème de Wigner isotrope -------------------------------------------------
 \begin{theorem}[Théorème de Wigner isotrope]\label{th:2}
-Soit $W \in M_{n}(\mathbb{R})$, telle que $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$, W à un profile de variance V tel que $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$ pour $\sigma \in \mathbb{R}$\\
+Soit $W \in M_{n}(\mathbb{R})$, telle que $W_{ij}$ sont des variables aléatoires réels, $\mathbb{E}(W_{ij}) = 0$, $\mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$, W à un profil de variance V tel que $\forall i = 1:n , \; \sum_{j=1}^{n}V_{ij} = \sigma^2$ pour $\sigma \in \mathbb{R}$\\
 Soit $Q(z)$ la résolvante de W
 \begin{align*} 
 Q(z) = (W - zI)^{-1}\\
@@ -171,7 +171,7 @@ Donc
 \begin{align}
 	\eqref{eq:3} &\Leftrightarrow1 = -\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) g_{wig}^{\sigma^2}(\lambda_{max}) \nonumber\\
 	&\Leftrightarrow 1 = -\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) \frac{- \lambda_{max} - \sqrt{(\lambda_{max}^2 - 4\sigma^2)}}{2\sigma^2} \nonumber\\
-	&\Leftrightarrow \lambda_{max} = \frac{(c_{in} - c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}} \label{z1}
+	&\Leftrightarrow \lambda_{max} = \frac{(c_{in} - c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}} \label{z_1}
 \end{align}
 
 de plus $\frac{1}{2\sqrt{n}}(c_{in} - c_{out}) = \mathcal{O}(\sqrt(n))$ et $\sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}} =  \mathcal{O}(\frac{1}{\sqrt(n)})$\\
@@ -183,12 +183,12 @@ Comme $A = X + \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} -
 	&\Leftrightarrow \mathbf{1^Tv} = -\alpha\mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{11}^T\mathbf{v} - \beta \mathbf{1^T} (\Gamma - \lambda I)^{-1}\mathbf{uu}^T\mathbf{v} \nonumber\\
 	&\xrightarrow[n \to +\infty]{} 1 = -\alpha g_{wig}^{\sigma^2}(\lambda) \nonumber\\
 	&\Leftrightarrow 1 = -\alpha  \frac{- \lambda - \sqrt{(\lambda^2 - 4\sigma^2)}}{2\sigma^2}\nonumber\\
-	&\Leftrightarrow \lambda = \frac{(c_{in} + c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} + c_{out}} \label{z2}
+	&\Leftrightarrow \lambda = \frac{(c_{in} + c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} + c_{out}} \label{z_2}
 \end{align} 
 
 On a finalement une matrice A qui est la somme d'une matrice aléatoire X et de deux perturbations de rang 1.
-De fait, la mesure spectrale de A à deux valeurs propres qui sortent du bulk, à savoir $\lambda_{max}$ et $\lambda$.
-Par la suite nous noterons $z1 = \lambda_{max}$ et $z2 = \lambda$
+De fait, la mesure spectrale de A à deux valeurs propres qui sortent du support de la distribution de Wigner, à savoir $\lambda_{max}$ et $\lambda$.
+Par la suite nous noterons $z_1 = \lambda_{max}$ et $z_2 = \lambda$
 
 \subsection{Interprétation des résultats obtenus}
 \label{subsec:1.3}
@@ -225,8 +225,8 @@ L'essence de la divergence intervient lorsque qu'il est défini que $\mathbb{V}(
 \begin{align*}
 	\rho (z)&: \frac{n}{\pi}\frac{\sqrt{(2(c_{in} + c_{out}) - x^2)_+}}{\pi(c_{in} + c_{out})} &\;& \frac{\sqrt{(2(\sigma_{in}^2 + \sigma_{out}^2) - x^2)_+}}{\pi(\sigma_{in}^2 + \sigma_{out}^2)}\\
 	\sigma^2&: \frac{c_{in} + c_{out}}{2n} &\;& \frac{\sigma_{in}^2 + \sigma_{out}^2}{2} \\
-	z1&: \frac{c_{in}-c_{out}}{2} + \frac{c_{in}+c_{out}}{c_{in}-c_{out}} &\;& \frac{c_{in}-c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}-c_{out}}\\
-	z2&: \frac{c_{in}+c_{out}}{2} + 1 &\;& \frac{c_{in}+c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}+c_{out}}\\
+	z_1&: \frac{c_{in}-c_{out}}{2} + \frac{c_{in}+c_{out}}{c_{in}-c_{out}} &\;& \frac{c_{in}-c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}-c_{out}}\\
+	z_2&: \frac{c_{in}+c_{out}}{2} + 1 &\;& \frac{c_{in}+c_{out}}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2+\sigma_{out}^2}{c_{in}+c_{out}}\\
 	p_{lim}&: \frac{\sqrt{2(c_{in} - c_{out})}}{\sqrt{n}}&\;& \frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}\\
 \end{align*}
 
