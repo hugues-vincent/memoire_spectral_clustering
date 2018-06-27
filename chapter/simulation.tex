@@ -1,28 +1,4 @@
-\section{Simulation}
-Le but est de générer une matrice d'adjacence A sous les mêmes hypothèses que \eqref{eq:1} en faisant varier les différents paramètres, à savoir: $n$, $p_{in}$, $p_{out}$ \\
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.6]{static/graph_n50_pin08_pout01.png}
-\caption{Graphe généré à partir des paramètres: $n=50$, $p_{in}=0.8$, $p_{out}=0.1$}
-\end{figure}
-
-L'élément discriminant du test spectral étant la variable $ \Delta p= p_{in} - p_{out}$, nous allons tester 3 valeurs représentatives des différents types de résultats:
-\begin{itemize}
-	\item[1-] $\Delta p \in [-1,\: -p_{lim}] \implies$ le graphe comporte de structure de communauté ``disassortative'';
-	\item[2-] $\Delta p \in [-p_{lim},\: p_{lim}] \implies$ la méthode spectrale ne peut rien conclure sur la stucture de communauté du graphe;
-	\item[2-] $\Delta p \in [p_{lim},\: 1] \implies$ le graphe comporte une structure de communauté ``assortative''.\\
-\end{itemize}
-
-Par la suite nous allons tester pour les valeurs $\Delta p= 0.5, 0.08, -0.5$ .
-De plus nous ferons une première batterie de test avec $n=100$ et une autre avec $n=1000$.
-La terminologie utilisée dans les figures ci-dessous est:
-\begin{itemize}
-	\item[- \underline{$n,\: p_{in},\: p_{out},\: p_{lim},\: z_1,\: z_2$}:] sont identiques aux notations utilisées jusqu'à présent ;
-	\item[- \underline{$z_1\: theoric, \:z_2\: theoric$}:] sont les plus grandes valeurs propres $z_1$ et $z_2$ calculées via les équations \eqref{z_1} et \eqref{z_2} ;    
-	\item[- \underline{$p_{in}\: estimated, \:p_{out}\: estimated$}:] sont les probabilités du SBM calculées a posteriori grâce aux valeurs propres $z_1$ et $z_2$.\\
-\end{itemize}
-Les $p_{in}\: estimated, \:p_{out}\: estimated$ sont calculés via un calcul d'optimisation.\\
+\section{Simulations}
 \begin{figure}[p]
 	\begin{subfigure}{.5\textwidth}
 		\centering
@@ -61,9 +37,34 @@ Les $p_{in}\: estimated, \:p_{out}\: estimated$ sont calculés via un calcul d'o
 		\label{n1000delta-05}
 	\end{subfigure}
 \end{figure}
+Le but est de générer une matrice d'adjacence A sous les mêmes hypothèses que \eqref{eq:1} en faisant varier les différents paramètres, à savoir: $n$, $p_{in}$, $p_{out}$ \\
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{static/graph_n50_pin08_pout01.png}
+\caption{Graphe généré à partir des paramètres: $n=50$, $p_{in}=0.8$, $p_{out}=0.1$}
+\end{figure}
+
+L'élément discriminant du test spectral étant la variable $ \Delta p= p_{in} - p_{out}$, nous allons tester 3 valeurs représentatives des différents types de résultats:
+\begin{itemize}
+	\item[1-] $\Delta p \in [-1,\: -p_{lim}] \implies$ le graphe comporte de structure de communauté ``disassortative'';
+	\item[2-] $\Delta p \in [-p_{lim},\: p_{lim}] \implies$ la méthode spectrale ne peut rien conclure sur la stucture de communauté du graphe;
+	\item[2-] $\Delta p \in [p_{lim},\: 1] \implies$ le graphe comporte une structure de communauté ``assortative''.\\
+\end{itemize}
+
+Par la suite nous allons tester pour les valeurs $\Delta p= 0.5, 0.08, -0.5$ .
+De plus nous ferons une première batterie de test avec $n=100$ et une autre avec $n=1000$.
+La terminologie utilisée dans les figures ci-dessous est:
+\begin{itemize}
+	\item[- \underline{$n,\: p_{in},\: p_{out},\: p_{lim},\: z_1,\: z_2$}:] sont identiques aux notations utilisées jusqu'à présent ;
+	\item[- \underline{$z_1\: theoric, \:z_2\: theoric$}:] sont les plus grandes valeurs propres $z_1$ et $z_2$ calculées via les équations \eqref{z_1} et \eqref{z_2} ;    
+	\item[- \underline{$p_{in}\: estimated, \:p_{out}\: estimated$}:] sont les probabilités du SBM calculées a posteriori grâce aux valeurs propres $z_1$ et $z_2$.\\
+\end{itemize}
+Les $p_{in}\: estimated, \:p_{out}\: estimated$ sont calculés via un calcul d'optimisation.\\
+
 
 La première observation que l'on peut faire est que les valeurs propres de nos matrices d'adjacence sont bien distribuées selon la loi du demi-cercle de Wigner.
-De plus, en fonction de $\Delta p$ la mesure spectrale est perturbé (ou pas) par une ou deux valeurs propres qui sortent du support de la distribution initiale.\\
+De plus, en fonction de $\Delta p$ la mesure spectrale est perturbée (ou pas) par une ou deux valeurs propres qui sortent du support de la distribution initiale.\\
 
 Dans les cas avec $\Delta p = 0.5$ (\autoref{n100delta05}, \autoref{n1000delta05}), on voit très clairement deux valeurs propres qui se détachent du support de la distribution de Wigner.
 Les valeurs $z_1$, $z_2$ correspondent bien aux valeurs théoriques avec un taux d'erreur de l'ordre de $10^{-2}$.

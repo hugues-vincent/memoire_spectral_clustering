@@ -125,3 +125,43 @@ Une manière d'encoder ces paramètres est d'utiliser la relation suivante $p_{i
 \end{align}
 Où $q_i$ est la probabilité intrinsèque du nœud $i$ à avoir une arrête, $g_i$ est la communauté correspondant au nœud $i$ et $C_{g_ig_j}$ est le facteur de correction par communauté.\\
 Cette formalisation plus générale est très répandu dans la théorie de la détection de communauté spectrale.
+
+\subsection{Test complet de l’algorithme de clustering spectral de graphe}
+Dans cette section nous allons retrouver les communautés d'un graphe généré à partir d'un SBM.
+Pour ce faire, nous allons suivre la procédure expliquer en \ref{par:algo spectral clustering}.
+Le score utilisé est le \textit{Rand index}, \cite[p.78 eq.(88)]{Community_detection_in_graphs}.
+Pour catégoriser les nœuds projetés dans l'espace associé aux vecteurs propres nous avons utilisé l'algorithme \textit{K-means}.\\
+
+Ci-dessous les batteries de tests, leur score ainsi que les nœuds projetés sur les plans des 4 valeurs propres les plus significatives
+$\{z_0,z1\}$
+$\{z_0,z2\}$
+$\{z_0,z3\}$
+$\{z_1,z2\}$
+\begin{figure}[H]
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.58]{static/q3_nq9_pin09_pout02.png}
+		\caption{$n=27$, $p_{in}=0.9$, $p_{out}=0.2$}
+		\label{n27pin09pout02}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.58]{static/q5_nq10_pin07_pout03.png}
+		\caption{$n=50$, $p_{in}=0.7$, $p_{out}=0.3$}
+		\label{n50pin07pout03}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.58]{static/q3_nq9_pin06_pout03.png}
+		\caption{$n=50$, $p_{in}=0.6$, $p_{out}=0.3$}
+		\label{n50pin06pout03}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering
+		\includegraphics[scale=0.58]{static/q5_nq10_pin04_pout03.png}
+		\caption{$n=50$, $p_{in}=0.4$, $p_{out}=0.3$}
+		\label{n50pin04pout03}
+	\end{subfigure}
+\end{figure}
+
+On remarque que même pour des graphes avec un $\Delta P$ très faible, la qualité du résultat est de l'ordre de $70\%$.
