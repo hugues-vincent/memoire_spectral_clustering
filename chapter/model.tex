@@ -72,7 +72,7 @@ X = A - \langle A \rangle\nonumber
 \begin{equation}
 	X_{ij}  = \left\{
 	\begin{array}{lr}
-		B_{ij}(p_{in}) - p_{in} & : (i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) \\
+		B_{ij}(p_{in}) - p_{in} & : (i,j < \frac{n}{2}) \; ou \; (i,j \ge \frac{n}{2}) \\
 		B_{ij}(p_{out}) - p_{out} & : else \; where
 	\end{array}
 \right.\nonumber
@@ -84,7 +84,7 @@ Où $B_{ij}(p) \sim B(p)$, $B(p)$ loi de Bernoulli de paramètre p et $B_{ij} = 
 \subsubsection*{2- Profil de variance de $\frac{X}{\sqrt{n}}$}
 Nous aimerions modifier la forme des entrées $X_{ij}$ en $\sigma_{ij} Z_{ij}$, où $Z_{ij}$ est une variable aléatoire centrée réduite, afin de nous ramener à des théorèmes connus.
 
-Pour $(i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) $ on a:
+Pour $(i,j < \frac{n}{2}) \; ou \; (i,j \ge \frac{n}{2}) $ on a:
 \begin{align*}
 \mathbb{E}(X_{ij}) &= \mathbb{E}(B(p_{in}))- p_{in} = 0\\
 \sigma_{in}^2 &= \mathbb{V}(X_{ij}) \\ 
@@ -99,12 +99,12 @@ finalement on obtient
 \begin{equation}
 	X_{ij} \sim \left\{
 	\begin{array}{lr}
-		\sigma_{in} Z_{ij} & : (i,j < \frac{n}{2}) \lor (i,j \ge \frac{n}{2}) \\
+		\sigma_{in} Z_{ij} & : (i,j < \frac{n}{2}) \; ou \; (i,j \ge \frac{n}{2}) \\
 		\sigma_{out} Z_{ij} & : else \; where
 	\end{array}
 \right.\nonumber
 \end{equation}
-Où $Z_{ij} = \frac{B(p) - p}{\sqrt{p(1-p)}} \;\;avec \; p = p_{in} \lor p_{out}$\\
+Où $Z_{ij} = \frac{B(p) - p}{\sqrt{p(1-p)}} \;\;avec \; p = p_{in} \; ou \; p_{out}$\\
 
 % ------------------------------------------------- théorème 1 -------------------------------------------------
 Le théorème de Wigner ne fonctionne que pour les matrices à entrées iid. 

@@ -40,11 +40,22 @@
 
 % \newcommand{\example}{\textit{example} }
 
-\titleformat{\chapter}
-  {\Large\bfseries} % format
-  {}                % label
-  {0pt}             % sep
-  {\huge}           % before-code
+% \titleformat{\chapter}
+%   {\Large\bfseries} % format
+%   {}                % label
+%   {0pt}             % sep
+%   {\huge}           % before-code
+
+\titleformat{\section}[block]
+  {\fontsize{12}{15}\bfseries\sffamily}
+  {\thesection}
+  {1em}
+  {}
+\titleformat{\subsection}[block]
+  {\Large\bfseries}
+  {\thesubsection}
+  {1em}
+  {}
 
 
 \begin{document}
