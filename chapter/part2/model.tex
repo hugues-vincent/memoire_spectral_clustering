@@ -111,7 +111,7 @@ Où $B_{ij}(p) \sim B(p)$, $B(p)$ loi de Bernoulli de paramètre p et $B_{ij} = 
 
 
 % ------------------------------------------------- 2- trouver X  -------------------------------------------------
-\subsubsection*{2- Profil de variance de $\frac{X}{\sqrt{n}}$}
+\subsubsection*{2- Recherche de la mesure spectrale de $\frac{X}{\sqrt{n}}$}
 Nous aimerions modifier la forme des entrées $X_{ij}$ en $\sigma_{ij} Z_{ij}$, où $Z_{ij}$ est une variable aléatoire centrée réduite, afin de nous ramener à des théorèmes connus.
 
 Pour $(i,j < \frac{n}{2}) \; ou \; (i,j \ge \frac{n}{2}) $ on a:
@@ -140,7 +140,7 @@ Où $Z_{ij} = \frac{B(p) - p}{\sqrt{p(1-p)}} \;\;avec \; p = p_{in} \; ou \; p_{
 Le théorème de Wigner ne fonctionne que pour les matrices à entrées iid. 
 Il existe un théorème lorsque le profil de variance de la matrice aléatoire étudié est stochastique.
 \begin{theorem}\label{th:1}
-Soit $W \in M_{n}(\mathbb{R})$, $W_{ij}$ sont des variables aléatoires réels\\
+Soit $W \in M_{n}(\mathbb{R})$, $W_{ij}$ sont des variables aléatoires réelles\\
 On suppose que les $(W_{ij})_{i \leq j}$ sont indépendantes telles que $\mathbb{E}(W_{ij}) = 0$, $\sigma_{ij}^2 = \mathbb{E}(W_{ij}^2) < \infty$, $W_{ij} = W_{ji}$\\
 On appelle profil de variance la matrice symétrique
 \begin{align*}
@@ -170,12 +170,17 @@ Si on note $\rho(x)$ la densité spectrale de $\frac{X}{\sqrt{n}}$ on a;
 \end{equation}
 
 % ------------------------------------------------- 3- étude de B  -------------------------------------------------
-\subsubsection*{3- étude de la mesure spectrale de $B$}
+\subsubsection*{3- Étude de la mesure spectrale de $\frac{X}{\sqrt{n}}$ et recherche de ces valeurs propres maximales}
+Nous venons de trouver la densité spectrale de $\frac{X}{\sqrt{n}}$.
+Nous voulons à présent étudier ces valeurs propres.
+Pour ce faire nous allons séparer l'équation $\frac{X}{\sqrt{n}} = \frac{1}{\sqrt{n}}(A - \langle A \rangle)$ en deux parties, à savoir $\frac{X}{\sqrt{n}} = \frac{1}{\sqrt{n}}(B \;+\; \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T)$\\
 Dans la suite de l'étude nous noterons B la matrice de modularité telle que 
 \begin{align*} 
 B :&= X + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T \\
 \frac{B}{\sqrt{n}} &= \frac{X}{\sqrt{n}} + \frac{1}{2\sqrt{n}}(c_{in} - c_{out})\mathbf{uu}^T\\
 \end{align*}
+Le raisonnement qui va suivre est une heuristique. En effet, pour compléter rigoureusement la preuve qui va suivre, il faudrait vérifier la convergence du terme $\frac{B}{\sqrt{n}}$ en entier.\\
+
 Soit v le vecteur propre de $\frac{B}{\sqrt{n}}$ associé à $\lambda_{max}$ et soit $\Gamma = \frac{X}{\sqrt{n}}$
 
 \begin{align} 
@@ -200,16 +205,17 @@ Alors
 \end{align*}
 où $g_{wig}^{\sigma^2}$ est la transformé de Stieltjes de la loi de Wigner de paramètre $\sigma^2$ qui satisfait l'équation
 \begin{equation}
-	\sigma^2g_{wig}^{\sigma^2}(z)^2+\lambda_{max}g_{wig}^{\sigma^2}(z)+1=0
-\end{equation}
+	\sigma^2g_{wig}^{\sigma^2}(z)^2+z g_{wig}^{\sigma^2}(z)+1=0
+\end{equation}\\
 \end{theorem}
+
 Reprenons l’équation \eqref{eq:3}, en appliquant le Théorème de Wigner isotrope et en s'assurant que tous les termes de droite convergent, nous avons:
 \begin{align*}
 \mathbf{u^T}(\Gamma - \lambda_{max}I)^{-1}\mathbf{u} \xrightarrow[n \to +\infty]{} g_{wig}^{\sigma^2}(\lambda_{max})
 \end{align*}
 or $g_{wig}^{\sigma^2}(\lambda_{max})$ satisfait l'équation suivante 
 \begin{align}
-	\sigma^2U^2+\lambda_{max}U+1=0 \implies U = \frac{- \lambda_{max} \pm \sqrt{(\lambda_{max}^2 - 4\sigma^2)}}{2\sigma^2}
+	\sigma^2g_{wig}^{\sigma^2}(\lambda_{max})^2+\lambda_{max}g_{wig}^{\sigma^2}(\lambda_{max})+1=0 \implies g_{wig}^{\sigma^2}(\lambda_{max}) = \frac{- \lambda_{max} \pm \sqrt{(\lambda_{max}^2 - 4\sigma^2)}}{2\sigma^2}
 \end{align}
 Donc
 \begin{align}
@@ -236,22 +242,26 @@ Par la suite nous noterons $z_1 = \lambda_{max}$ et $z_2 = \lambda$, et nous app
 
 \subsection{Interprétation des résultats obtenus}
 \label{subsec:1.3}
-Si les 2 plus petites valeurs propres sont inférieur au bord gauche du bulk (ici $\lambda^- = -2\sigma$) alors le graphe admet une structure de communauté ``disassortative''.
-Si les 2 plus grandes valeurs propres sont supérieur au bord droit du bulk (ici $\lambda^+ = 2\sigma$) alors le graphe admet une structure de communauté ``assortative''.
+Si les 2 plus petites valeurs propres sont inférieures au bord gauche du bulk (ici $\lambda^- = -2\sigma$) alors le graphe admet une structure de communauté ``disassortative''.
+Si les 2 plus grandes valeurs propres sont supérieures au bord droit du bulk (ici $\lambda^+ = 2\sigma$) alors le graphe admet une structure de communauté ``assortative''.
 Si $0$ ou $1$ valeur propre sort du bulk alors la méthode spectrale ne peut rien conclure sur la structure de communauté du graphe G.\\
 
-Nous cherchons à déterminer $p_{lim} = p_{in} - p_{out}$, qui est la condition limite supérieur sur les paramètres du SBM pour que l'algorithme puisse détecter la structure de communauté ``assortative'' du graphe G.
+Il est important de remarquer que $z_2$ est toujours supérieure au bord droit du bulk, indépendamment des valeurs de $p_{in}$ et $p_{out}$.
+Par conséquent, c'est $z_1$ qui nous indique si oui ou non il y a une structure de communauté dans le graphe.\\
+
+Nous cherchons à déterminer $p_{lim} = p_{in} - p_{out}$, qui est la condition limite supérieure sur les paramètres du SBM pour que l'algorithme puisse détecter la structure de communauté ``assortative'' du graphe G.
 Dans la mesure où  $\lambda^+$ est positif ou nul, lorsque $p_{in} - p_{out} \in [0, p_{lim}]$ alors la méthode spectrale est incapable de conclure sur la structure ``assortative''.\\
  
 La condition limite naturelle est celle où la valeur propre maximale est égale au bord droit du support de la mesure spectrale de la matrice A.
+À partir de cette condition nous allons essayer de retrouver $p_{lim}$.\\
 On a alors 
 \begin{align*}
 	&\Leftrightarrow \lambda^+ = \lambda_{max}\\
 	&\Leftrightarrow \sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)} = \frac{(c_{in} - c_{out})}{2\sqrt{n}} + \sqrt{n}\frac{\sigma_{in}^2 + \sigma_{out}^2}{c_{in} - c_{out}}\\
-	&\Leftrightarrow \sqrt{2S} = \alpha + \beta S\\
+	&\Leftrightarrow \sqrt{2S} = \alpha + \beta S &\; avec  \; S = \sigma_{in}^2 + \sigma_{out}^2,\;\alpha=\frac{(c_{in} - c_{out})}{2\sqrt{n}}, \; \beta=  \frac{\sqrt{n}}{c_{in} - c_{out}}\\
 	&\Leftrightarrow 2S = \alpha^2 + 2\alpha \beta S +\beta^2 S^2\\
 	&\Leftrightarrow 0 = \beta^2 S^2 + 2(\alpha \beta - 1)S+ \alpha^2 \\
-	&\Leftrightarrow p_{in} - p_{out} = \frac{\sqrt{2(\sigma_{in}^2 + \sigma{out}^2)}}{\sqrt{n}}  \\
+	&\Leftrightarrow p_{in} - p_{out} = \frac{\sqrt{2(\sigma_{in}^2 + \sigma_{out}^2)}}{\sqrt{n}}  \\
 \end{align*}
 Donc
 \begin{equation}
