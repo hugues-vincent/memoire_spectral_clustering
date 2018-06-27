@@ -17,7 +17,12 @@ Nous noterons \textbf{A} la matrice d'adjacence du graphe \textbf{G}.
 Elle est symétrique de par le fait que le graphe soit non orienté.
 Nous supposerons d'ailleurs, que ses éléments sont rangés dans l'ordre de leur communauté.
 Dans notre cas avec \textbf{q}=2, les $\mathbf{n}/2$ premières lignes correspondent aux noeuds de la communauté 1, et les $\mathbf{n}/2$ dernières la communauté 2.
-Même chose pour les colonnes, par symétrie de \textbf{A}.
+Même chose pour les colonnes, par symétrie de \textbf{A}.\\
+Cette disposition des éléments ne change pas le résultat final de l'analayse.
+En effet, on sait que toutes les matrices congruentes représentes la même forme bilinéaire dans des bases différentes. 
+Or le but de la procédure qui va suivre va être d'analyser la distribution des valeurs propres de notre matrice.
+Par conséquent ranger les colonnes d'une matrice selon un ordre arbitraire correspond à la même forme bilinéaire et donc aux mêmes valeurs propres.\\
+
 Chaque élément de la matrice \textbf{A} est simulé par une loi de Bernoulli avec: 
 \begin{equation}\label{rq:probability}
  A_{ij} \sim \left\{
@@ -39,24 +44,49 @@ La trame sera la suivante:
 \begin{itemize}
  	\item[1-] réécriture de la matrice $A = \langle A \rangle + X$;
  	\item[2-] étude de la mesure spectrale de X;
- 	\item[3-] étude de la mesure spectrale de B tel que $B = X + P_1$;
+ 	\item[3-] étude de la mesure spectrale de B où $B = X + P_1$;
  	\item[4-] étude de la mesure spectrale de $A = B + P_2 = X + P_1 + P_2$.
  \end{itemize} 
 où $P_1$, $P_2$ sont des perturbations de rang 1 et $\langle A \rangle$ correspond à la moyenne de A du SBM.\\
-
 % ------------------------------------------------- equation (1) -------------------------------------------------
 \subsubsection*{1- Équation de $\langle A \rangle$}
+En partant de $A$, on définit $\langle A \rangle$ comme la matrice dont les entrées $\langle A \rangle _{ij} = \mathbb{E}(A_{ij})$
 Soit
-\begin{equation} 
-\langle A \rangle := \frac{1}{2}(c_{in} + c_{out})\mathbf{11}^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{uu}^T \label{eq:1}
-\end{equation}
+\begin{align*}
+	\langle A \rangle 
+	&=
+	\begin{bmatrix}
+		p_{in} & p_{out}\\
+		p_{out} & p_{in}\\
+	\end{bmatrix} \otimes \mathbf{1}_{\frac{n}{2}}\mathbf{1}_{\frac{n}{2}}^T \times \frac{n}{2}\\
+	&=
+	\begin{bmatrix}
+		c_{in} & c_{out}\\
+		c_{out} & c_{in}\\
+	\end{bmatrix} \otimes \mathbf{1}_{\frac{n}{2}}\mathbf{1}_{\frac{n}{2}}^T \times \frac{1}{2}\\
+	&=\left(\frac{1}{2} \times
+	\begin{bmatrix}
+		c_{in} + c_{out} & c_{in} + c_{out}\\
+		c_{in} + c_{out} & c_{in} + c_{out}\\
+	\end{bmatrix} 
+	+ \frac{1}{2} \times
+	\begin{bmatrix}
+		c_{in} - c_{out} & -c_{in} + c_{out}\\
+		-c_{in} + c_{out} & c_{in} - c_{out}\\
+	\end{bmatrix}
+	\right) \otimes \mathbf{1}_{\frac{n}{2}}\mathbf{1}_{\frac{n}{2}}^T \times \frac{1}{2}\\
+	&=\left(\frac{1}{2} (c_{in} + c_{out})\times \mathbf{1}_2\mathbf{1}_2^T
+	+ \frac{1}{2} (c_{in} - c_{out}) \times \mathbf{u}_2\mathbf{u}_2^T
+	\right) \otimes \mathbf{1}_{\frac{n}{2}}\mathbf{1}_{\frac{n}{2}}^T\\
+	&= \frac{1}{2}(c_{in} + c_{out})\mathbf{1}_n\mathbf{1}_n^T + \frac{1}{2}(c_{in} - c_{out})\mathbf{u}_n\mathbf{u}_n^T \numberthis \label{eq:1}
+\end{align*}
 Avec
 \begin{align*}
 c_{in} &= np_{int} \\
 c_{out} &= np_{out}\\
-\mathbf{1} &= (1, 1, \ldots)/\sqrt{n}\\
-\mathbf{u} &= (1, 1, \ldots, -1, -1, \ldots)/\sqrt{n}\\
-\langle\mathbf{1}|\mathbf{u}\rangle &= 0
+\mathbf{1}_n &= (\underbrace{1,\ldots,1}_{n\text{-times}})/\sqrt{n}\\
+\mathbf{u}_n &= (\underbrace{1,\ldots,1}_{\frac{n}{2}\text{-times}}, \underbrace{-1,\ldots,1}_{\frac{n}{2}\text{-times}})/\sqrt{n}\\
+\langle\mathbf{1_n}|\mathbf{u_n}\rangle &= 0
 \end{align*}
 
 
