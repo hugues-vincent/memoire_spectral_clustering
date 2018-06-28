@@ -2,8 +2,8 @@
 \begin{figure}[p]
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[scale=0.58]{static/spectral_n100_pin08_pout03.png}
-		\caption{$n=100$, $\Delta p=0.5$}
+		\includegraphics[scale=0.58]{static/spectral_n100_pin08_pout02.png}
+		\caption{$n=100$, $\Delta p=0.6$}
 		\label{n100delta05}
 	\end{subfigure}
 	\begin{subfigure}{.5\textwidth}
@@ -20,8 +20,8 @@
 	\end{subfigure}
 	\begin{subfigure}{.5\textwidth}
 		\centering
-		\includegraphics[scale=0.58]{static/spectral_n1000_pin08_pout03.png}
-		\caption{$n=1000$, $\Delta p=0.5$}
+		\includegraphics[scale=0.58]{static/spectral_n1000_pin08_pout02.png}
+		\caption{$n=1000$, $\Delta p=0.6$}
 		\label{n1000delta05}
 	\end{subfigure}
 	\begin{subfigure}{.5\textwidth}
@@ -61,7 +61,7 @@ La terminologie utilisée dans les figures ci-dessous est:
 	\item[- \underline{$z_1\: theoric, \:z_2\: theoric$}:] sont les plus grandes valeurs propres $z_1$ et $z_2$ calculées via les équations \eqref{z_1} et \eqref{z_2} ;    
 	\item[- \underline{$p_{in}\: estimated, \:p_{out}\: estimated$}:] sont les probabilités du SBM calculées a posteriori grâce aux valeurs propres $z_1$ et $z_2$.\\
 \end{itemize}
-Les $p_{in}\: estimated, \:p_{out}\: estimated$ sont calculés via un calcul d'optimisation.\\
+Les $p_{in}\: estimated, \:p_{out}\: estimated$ sont calculés via un calcul d'optimisation dont les conditions initiales sont $p_{in, 0} = 1$ et $p_{out, 0} = 0$.\\
 
 
 La première observation que l'on peut faire est que les valeurs propres de nos matrices d'adjacence sont bien distribuées selon la loi du demi-cercle de Wigner.
