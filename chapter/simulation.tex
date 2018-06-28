@@ -45,6 +45,7 @@ Le but est de générer une matrice d'adjacence A sous les mêmes hypothèses qu
 \caption{Graphe généré à partir des paramètres: $n=50$, $p_{in}=0.8$, $p_{out}=0.1$}
 \end{figure}
 
+\paragraph{ }\label{par: p_lim law}
 L'élément discriminant du test spectral étant la variable $ \Delta p= p_{in} - p_{out}$, nous allons tester 3 valeurs représentatives des différents types de résultats:
 \begin{itemize}
 	\item[1-] $\Delta p \in [-1,\: -p_{lim}] \implies$ le graphe comporte de structure de communauté ``disassortative'';
@@ -55,7 +56,7 @@ L'élément discriminant du test spectral étant la variable $ \Delta p= p_{in} 
 Par la suite nous allons tester pour les valeurs $\Delta p= 0.5, 0.08, -0.5$ .
 De plus nous ferons une première batterie de test avec $n=100$ et une autre avec $n=1000$.
 La terminologie utilisée dans les figures ci-dessous est:
-\begin{itemize}
+\begin{itemize} 
 	\item[- \underline{$n,\: p_{in},\: p_{out},\: p_{lim},\: z_1,\: z_2$}:] sont identiques aux notations utilisées jusqu'à présent ;
 	\item[- \underline{$z_1\: theoric, \:z_2\: theoric$}:] sont les plus grandes valeurs propres $z_1$ et $z_2$ calculées via les équations \eqref{z_1} et \eqref{z_2} ;    
 	\item[- \underline{$p_{in}\: estimated, \:p_{out}\: estimated$}:] sont les probabilités du SBM calculées a posteriori grâce aux valeurs propres $z_1$ et $z_2$.\\

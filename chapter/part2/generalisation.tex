@@ -49,14 +49,16 @@ Le profil de variance de $\frac{X}{\sqrt{n}}$ est donc une matrice bi-stochastiq
 Soit $\lambda$ une valeur propre de $\frac{A}{\sqrt{n}}$ et le vecteur propre associé.
 \begin{align}
 &\Leftrightarrow \frac{A}{\sqrt{n}}v =\lambda v \nonumber \\
-&\Leftrightarrow (\Gamma - \lambda I)v =-\alpha \mathbf{11}^Tv - \beta \sum_{i=1}^{q-1}\mathbf{u}_i\mathbf{u'}_i^T \label{eq:generalize}
+&\Leftrightarrow \frac{\langle A \rangle + X}{\sqrt{n}}v =\lambda v \nonumber \\
+&\Leftrightarrow (\frac{ X}{\sqrt{n}}- \lambda I )v = -\langle A \rangle v \nonumber \\
+&\Leftrightarrow (\Gamma - \lambda I)v =-\frac{c_{in} + (q-1)c_{out}}{q} \mathbf{u}_1\mathbf{u}_1^{\star} - \frac{c_{in}-c_{out}}{q}\sum_{i=1}^{q-1}\mathbf{u}_i\mathbf{u}_i^{\star} \label{eq:generalize}
 \end{align}
 Pour trouver la valeur propre associée à $\mathbf{u}_1$ on multiplie à gauche par $\mathbf{u}_1^{\star}(\Gamma -\lambda I)^{-1}$ et on obtient:
 \begin{align}
 \eqref{eq:generalize} &\Leftrightarrow \mathbf{u}_1^{\star}v =-\alpha \mathbf{u}_1^{\star}(\Gamma -\lambda I)^{-1}\mathbf{u}_1\mathbf{u}_1^{\star}v - \beta \mathbf{u}_1^{\star}(\Gamma -\lambda I)^{-1}\sum_{i=1}^{q-1}\mathbf{u}_i\mathbf{u}_i^{\star}v \nonumber\\
 &\xrightarrow[n \to +\infty]{} 1 = -\alpha g_{wig}^{\sigma^2}(\lambda) \nonumber\\
 &\Leftrightarrow 1 = \alpha \frac{\lambda + \sqrt{\lambda^2 - 4\sigma^2}}{2\sigma^2} \nonumber\\
-&\Leftrightarrow \lambda = \frac{c_{in} + (q-1)c_{out}}{q\sqrt{n}} + \frac{q\sqrt{n}\sigma^2}{c_{in} + (q-1)c_{out}} \label{eq:z_2 generalize}
+&\Leftrightarrow \lambda = \frac{c_{in} + (q-1)c_{out}}{q\sqrt{n}} + \frac{q\sqrt{n}\sigma^2}{c_{in} + (q-1)c_{out}} \label{eq:z_1 generalize}
 \end{align}
 Si on remplace $q$ par $2$ on retrouve l'équation \eqref{z_2}.\\
 Pour trouver les valeurs propres associée aux $\mathbf{u}_i, \; \forall i \in \{2, \cdots, q-1\}$ on multiplie à gauche par $\mathbf{u}_2^{\star}(\Gamma -\lambda I)^{-1}$ et on obtient:
@@ -64,13 +66,17 @@ Pour trouver les valeurs propres associée aux $\mathbf{u}_i, \; \forall i \in \
 \eqref{eq:generalize} &\Leftrightarrow \mathbf{u}_2^{\star}v =-\alpha \mathbf{u}_2^{\star}(\Gamma -\lambda I)^{-1}\mathbf{u}_1\mathbf{u}_1^{\star}v - \beta \mathbf{u}_2^{\star}(\Gamma -\lambda I)^{-1}\sum_{i=1}^{q-1}\mathbf{u}_i\mathbf{u}_i^{\star}v \nonumber\\
 &\xrightarrow[n \to +\infty]{} 1 = -\beta g_{wig}^{\sigma^2}(\lambda) \nonumber\\
 &\Leftrightarrow 1 = \beta \frac{\lambda + \sqrt{\lambda^2 - 4\sigma^2}}{2\sigma^2} \nonumber\\
-&\Leftrightarrow \lambda = \frac{c_{in} - c_{out}}{q\sqrt{n}} + \frac{q\sqrt{n}\sigma^2}{c_{in} - c_{out}}\label{eq:z_1 generalize}
+&\Leftrightarrow \lambda = \frac{c_{in} - c_{out}}{q\sqrt{n}} + \frac{q\sqrt{n}\sigma^2}{c_{in} - c_{out}}\label{eq:z_2 generalize}
 \end{align}
 Si on remplace $q$ par $2$ on retrouve l'équation \eqref{z_1}.\\
 Les valeurs propres de $A$ pour les valeurs propres de $\langle A \rangle$ égales à zéros appartiennent au support de la distribution de Wigner.
 Elles n'apportent donc aucune information supplémentaire sur la structure de communauté du graphe étudié.\\   
 
 Nous noterons $z_1 =$ \eqref{eq:z_1 generalize}  et $z_2 =$ \eqref{eq:z_2 generalize} pour la suite.
+On voit immédiatement que $0 \leq z_1$ et que $z_2 \leq z_1$. 
+Le critère discriminant pour détecter la structure de communauté donc la valeur propre $z2$. 
+C'est la même conclusion que dans le modèle avec 2 communautés, à la différence que la valeur propre non discriminante $z_1$ est de multiplicité $q-1$.
+On retrouve donc les même règles que dans \autoref{par: p_lim law}
  
 
 % ------------------------------------------------- 4- trouver p_lim -------------------------------------------------
