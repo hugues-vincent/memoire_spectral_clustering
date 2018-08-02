@@ -1,0 +1,44 @@
+\section{La détection de communauté}
+\subsection{Motivations}
+La théorie des réseaux, a pour but d'analyser les graphes correspondant à des réseaux tels que celui de l'Internet, de la politique ou de la classification en biologie.
+Chacun de ces graphes ont des propriétés spécifiques telles que:
+\begin{itemize}
+ 	\item[-] Centrality ;
+ 	\item[-] ``small world effect'' ;
+ 	\item[-] Clustering ;
+ 	\item[-] Efficiency ;
+ 	\item[-] Degree distribution ; 
+ 	\item[-] Community Structure.\\
+ \end{itemize}
+ C'est cette dernière propriété qui va nous intéresser, à savoir la structure de communauté d'un graphe.
+ L'idée de communauté correspond à l'intuition selon laquelle il y a des nœuds qui ont un lien étroit et forment des sous ensembles de nœuds de ce graphe.
+ Par exemple dans le graphe des représentants politique Français, les hommes politiques d'un même partie appartiendraient à une même communauté.
+ Cependant, dans cet exemple les choses peuvent être plus subtiles que ça, c'est là qu'intervient la détection de communauté.
+
+\subsection{Méthodes}
+Il y a différentes classes de méthodes pour la détection de communauté, en voici une liste non exhaustive:
+\begin{itemize}
+	\item[-] Graph partitioning
+	\item[-] Hierarchical clustering
+	\item[-] Partitional clustering
+	\item[-] Spectral clustering \\
+\end{itemize}
+\subsection{Perspectives}
+Les limites des modèles spectraux qui sont en développement pour la détection de communauté sont les suivantes:
+\begin{itemize}
+	\item[1-] Seuil à partir duquel la méthode spectrale n'est plus en mesure de détecter le communauté ;  
+	\item[2-] Temps de calcul sur de grands graphes;  
+	\item[3-] Raffinement des modèles de communautés.  
+\end{itemize}
+
+\subsection{Comparaison des performances}
+La notion de structure de communauté n'a pas de définition consensuelle.
+Ceci est également vrai pour les métriques qui mesurent les performances des différentes méthode.
+Ci-dessous une liste des métriques qui seront utilisées ultérieurement.
+Pour une liste complète voir \cite[p.77-79]{Community_detection_in_graphs}.
+\begin{itemize}
+	\item[-] Fraction of correctly classified vertices ; 
+	\item[-] Fowlkes and Mallows metric; 
+	\item[-] Rand Index; 
+	\item[-] Normalized Mutal Information; 
+\end{itemize}

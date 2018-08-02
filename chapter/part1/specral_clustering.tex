@@ -1,31 +1,5 @@
-\section{La détection de communauté}
-\subsection{Motivations}
-La théorie des réseaux, a pour but d'analyser les graphes correspondant à des réseaux tels que celui de l'Internet, de la politique ou de la classification en biologie.
-Chacun de ces graphes ont des propriétés spécifiques telles que:
-\begin{itemize}
- 	\item[-] Centrality ;
- 	\item[-] ``small world effect'' ;
- 	\item[-] Clustering ;
- 	\item[-] Efficiency ;
- 	\item[-] Degree distribution ; 
- 	\item[-] Community Structure.\\
- \end{itemize}
- C'est cette dernière propriété qui va nous intéresser, à savoir la structure de communauté d'un graphe.
- L'idée de communauté correspond à l'intuition selon laquelle il y a des nœuds qui ont un lien étroit et forment des sous ensembles de nœuds de ce graphe.
- Par exemple dans le graphe des représentants politique Français, les hommes politiques d'un même partie appartiendraient à une même communauté.
- Cependant, dans cet exemple les choses peuvent être plus subtiles que ça, c'est là qu'intervient la détection de communauté.
-
-\subsection{Spectral clustering}
-Il y a différentes classes de méthodes pour la détection de communauté, en voici une liste non exhaustive:
-\begin{itemize}
-	\item[-] Graph partitioning
-	\item[-] Hierarchical clustering
-	\item[-] Partitional clustering
-	\item[-] Spectral clustering \\
-\end{itemize}
-
-Les techniques qui nous intéressent sont celles du clustering spectral.
-L'idée centrale de ce type de techniques est qu'un graphe est représentable par une matrice à partir de laquelle on peut utiliser les techniques d'analyse de l'algèbre linéaire.
+\section{Spectral clustering}
+L'idée centrale des techniques de clustering spectral est qu'un graphe est représentable par une matrice à partir de laquelle on peut utiliser les techniques d'analyse de l'algèbre linéaire.
 
 Un graphe $G$ est la donnée d'un couple $(V, E)$ tel que $V$ est une ensemble de nœuds et $E$ et un ensemble d'arêtes (i.e un couple $(i,j)$ où $i,j \in V$).
 A partir de cette définition on peut représenter le graphe par une matrice dont les éléments correspondent à certaines données de $G$.
@@ -40,7 +14,7 @@ Il existe tout un ensemble de matrices représentant le graphe:
 Par exemple, la matrice d'adjacence d'un graphe, notée $A$, est définie telle que $\forall i,j \in V, \; A_{ij} = \mathbbm{1}_{(i,j) \in E}$.
 Une colonne $i$ représente le nœud $i$ dont chaque composante, $j$, est égale à $1$ si il existe une arête entre $i$ et $j$ et $0$ sinon.\\
 
-\subsubsection{Algorithme de clustering spectral de graphe}
+\subsection{Algorithme de clustering spectral de graphe}
  \label{par:algo spectral clustering}
 La procédure pour associer une communauté aux nœuds de $G$ via une méthode spectrale est la suivante: 
 \begin{itemize}
@@ -64,7 +38,7 @@ Elles nous renseigne en rien sur la structure non aléatoire des entrées de $A$
 Cependant, lorsque le graphe admet une structure de communauté, les entrées ne sont plus tout à fait indépendantes.
 Dans ce cas de figure, la théorie prévoit que des valeurs propres sortent du support de la mesure spectrale $\mu$.
 Ce sont ces valeurs propres qui contiennent l'information de la structure de communauté de $G$.\\
-Une remarque importante à faire est la suivante: si la structure de communauté de $G$ n'est pas assez ``explicite'', les valeurs propres censées porter l'information de ces dernières ne sortiront pas du support de la mesure spectrale théorique, et donc, seront interprétées comme du simple bruit.
+Autrement dit, si la structure de communauté de $G$ n'est pas assez ``explicite'', les valeurs propres censées porter l'information des communautés ne sortiront pas du support de la mesure spectrale théorique, et donc, seront interprétées comme du simple bruit.
 Dans cette situation, la méthode spectrale est incapable de déceler la structure de communauté de $G$.
 \par{\underline{Étape 4:}}
 Les vecteurs colonnes de W correspondent à des combinaisons linéaires de nœuds.
@@ -72,22 +46,7 @@ De par la construction de A, les entrées $i$ de ces vecteurs colonnes sont la s
 Les vecteurs propres que l'on a gardés sont ceux qui portent l'information des communautés.
 Donc chaque vecteur ligne représente un nœud du graphe et l'espace dans lequel il se meut constitue l'information de la structure de communauté. 
 
-\subsection{Perspectives}
-Les limites des modèles spectraux qui sont en développement pour la détection de communauté sont les suivantes:
-\begin{itemize}
-	\item[1-] Seuil à partir duquel la méthode spectrale n'est plus en mesure de détecter le communauté ;  
-	\item[2-] Temps de calcul sur de grands graphes;  
-	\item[3-] Raffinement des modèles de communautés.  
-\end{itemize}
-
-\subsection{Comparaison des performances}
-La notion de structure de communauté n'a pas de définition consensuelle.
-Ceci est également vrai pour les métriques qui mesurent les performances des différentes méthode.
-Ci-dessous une liste des métriques qui seront utilisées ultérieurement.
-Pour une liste complète voir \cite[p.77-79]{Community_detection_in_graphs}.
-\begin{itemize}
-	\item[-] Fraction of correctly classified vertices ; 
-	\item[-] Fowlkes and Mallows metric; 
-	\item[-] Rand Index; 
-	\item[-] Normalized Mutal Information; 
-\end{itemize}
+\subsection{Non-backtracking matrix}
+\subsubsection{Localization and Centrality in Networks }
+\subsubsection{Spectral Redemption: Clustering Sparse Networks}
+\subsubsection{Percolation on Sparse Networks}
