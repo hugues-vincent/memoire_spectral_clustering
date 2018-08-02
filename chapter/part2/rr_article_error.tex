@@ -1,0 +1,48 @@
+\section{Erreurs de l'article}
+\subsection{Détermination de la mesure spectrale de X par la combinatoire}
+Pour trouver la mesure spectrale de $X$, l'article utilise une méthode combinatoire.
+Nous allons dérouler le raisonnement.\\
+La transformé de Stieltjes de $X$ est :
+\begin{equation}
+	\rho(z) = \frac{1}{\pi} Im\langle Tr(zI - X)^{-1}\rangle
+\end{equation}
+où $\langle \dots \rangle$ indique la moyenne de l'ensemble.
+On peut réécrire la trace de la moyenne comme ce qui suit: 
+\begin{align}
+	\langle Tr(zI - X)^{-1}\rangle &= \frac{1}{z}\sum_{k=0}^{\infty} \frac{Tr\langle X^k\rangle}{z^k} \\
+	Tr\langle X^k\rangle &= \sum_{i_1\dots i_k}\langle X_{i_1i_2}X_{i_1i_2}\dots X_{i_ki_1}\rangle \label{eq: trace Xk}
+\end{align}
+On sait que $X$ est centrée et que les $X_{ij} \; \forall i\leq j$ sont des variables de Bernoulli indépendantes définies celon \eqref{eq: X}.
+Par conséquent $\langle X_{i_1i_2}X_{i_1i_2}\dots X_{i_ki_1}\rangle \neq 0$ si $k = 2m$ avec $m\in \mathbb{N}$ et si chaque $X_{ij}$ apparaît exactement deux fois.
+En effet
+\begin{equation}
+	\langle X_{ij}^2\rangle = \left\{
+	\begin{array}{lr}
+		\sigma_{in}^2  &\; si \; (i,j < \frac{n}{2}) \; ou \; (i,j \ge \frac{n}{2}) \\
+		\sigma_{out}^2 &\; else \; where
+	\end{array}
+\right.\nonumber
+\end{equation}
+
+\eqref{eq: trace Xk}
+
+\subsection{Normalisation de la mesure spectrale de X}
+Dans l'article l'équation $(7)$ donne la mesure spectrale de la matrice $X$.
+\begin{align*}
+	\rho(z) &= \frac{n}{\pi} \frac{\sqrt{2(c_{in} + c_{out}) - z^2}}{c_{in} + c_{out}}
+\end{align*}
+Calculons l'intégrale de $\rho(z)$. 
+On sait que son support est $[a, b] = [-\sqrt{2(c_{in} + c_{out})},\sqrt{2(c_{in} + c_{out})}]$.
+\begin{align*}
+	\int_{a}^{b} \rho(z) \, \mathrm{d}z &= \int_{a}^{b} \frac{n}{\pi} \frac{\sqrt{2(c_{in} + c_{out}) - z^2}}{c_{in} + c_{out}}  \, \mathrm{d}z \\
+	&= \int_{a}^{b} \frac{1}{\pi} \frac{\sqrt{2 n (p_{in} + p_{out}) - z^2}}{p_{in} + p_{out}}  \, \mathrm{d}z \\
+	&= \int_{a}^{b} \frac{\sqrt{n}}{\pi} \frac{\sqrt{2 (p_{in} + p_{out}) - \frac{z^2}{n}}}{p_{in} + p_{out}}  \, \mathrm{d}z  \\
+	&= n \int_{a'}^{b'} \frac{1}{\pi} \frac{\sqrt{2 (p_{in} + p_{out}) - u^2}}{p_{in} + p_{out}}  \, \mathrm{d}u  
+\end{align*}
+avec $u^2 = \frac{z^2}{n}$, $a'= \sqrt{2(p_{in} + p_{out})}$ et $b'= \sqrt{2(p_{in} + p_{out})}$.
+Or la fonction sous l’intégrale correspond à la loi du demi-cecle de Wigner de paramètre $\sigma = (p_{in} + p_{out})$, qui est normalisée sur le fermé $[a', b']$.
+On obtient donc:
+\begin{align*}
+ 	\int_{a}^{b} \rho(z) \, \mathrm{d}z &= n
+\end{align*}
+
