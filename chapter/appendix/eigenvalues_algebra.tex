@@ -1,0 +1,62 @@
+\section{Valeurs propres obtenues via algèbre linéaire}
+Dans cette annexe nous allons trouver les valeurs propres de l'\autoref{eq: A generalize}.
+
+On a 
+\begin{align*}
+	\langle A \rangle = \theta_q \otimes \mathbf{1}_{n_q} \mathbf{1}_{n_q}^t
+\end{align*}
+avec $\theta_q$ une matrice $q \times q$, dont les éléments diagonaux sont égaux à $a$ et les autres sont égaux à $b$, $\mathbf{1}_{n_q}$ le vecteur colonne rempli de $1$ et de taille $n_q$, et $\otimes$ est le produit de Kronecker.\\
+On cherche les valeurs propres de $\langle A \rangle$: 
+\begin{align*}
+	&\Leftrightarrow 
+		|\A| = 0\\
+	&\Leftrightarrow 
+		det(\theta_q \otimes \mathbf{1}_{n_q} \mathbf{1}_{n_q}^t - \lambda I_n) = 0
+\end{align*}
+On a 
+\begin{align*}
+	det(\A) &= 
+\begin{vmatrix}
+B & C &  \dots & \dots & C \\ 
+C & \ddots &  & & \vdots \\ 
+\vdots &  &  & \ddots & C \\ 
+C & \ldots & \ldots & C & B
+\end{vmatrix} \\
+\end{align*}
+Où $B = a\mathbf{1}_{n_q} \mathbf{1}_{n_q}^t - \lambda I_{n_q}$ et $C = b \mathbf{1}_{n_q} \mathbf{1}_{n_q}^t$.\\
+
+On a la formule de déterminant par blocs suivante: 
+\begin{align*}
+det \left(\begin{matrix} A & 0 \\ C & D \end{matrix} \right) = det(A)det(D)
+\end{align*}
+et en utilisant les combinaisons linaires lignes/colonnes suivantes $q-2$ fois
+\begin{align}\label{eq: matrix method}
+	(L_n \leftarrow L_n  - L_{n-1}) \\
+	(C_{n-1} \leftarrow C_{n-1}  + C_n) \nonumber
+\end{align}
+on obtient
+\begin{align*}
+	det(\A ) &= 
+	\begin{vmatrix}
+	B & (q-1)C\\
+	C & B + (q-1)C
+	\end{vmatrix}
+	| B - C |^{q-2} \\
+	 &= F_{n_q}G_{n_q}^{q-2}
+\end{align*}
+
+Commençons par factoriser le polynôme $G_{n_q}^{q-2}$.
+En utilisant la même stratégie que \eqref{eq: matrix method}, on obtient:
+\begin{equation}
+	G_{n_q}^{q-2} = (-\lambda)^{n_q - 1} (\lambda - n_q(a-b))
+\end{equation}
+% (L_n \leftarrow L_n  - L_{n-1}) &= 
+% \begin{vmatrix}
+% B & C &  \dots & & \dots & C \\ 
+% C & \ddots &  & & & \vdots \\ 
+% \vdots &  &  & \ddots & & C \\ 
+% C & \ldots & \ldots & C & B & C\\
+% 0 & \ldots & \ldots & 0 & C - B & B - C 
+% \end{vmatrix} \\
+% (C_{n-1} \leftarrow C_{n-1}  + C_n) &= 
+% \end{align*}

@@ -36,10 +36,11 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{mydef}{Definition}
 
-\title{Graph spectra and the detectability of community structure in networks}
+\title{Mémoire master 2 \\ Graph spectra and the detectability of community structure in networks}
 \author{Hugues-Vincent Ropert}
 \date{Mai 2018}
 
+\newcommand{\A}{\langle A \rangle}
 % \newcommand{\example}{\textit{example} }
 
 % \titleformat{\chapter}
@@ -62,9 +63,10 @@
 
 \begin{document}
 \maketitle
+\newpage
 
 \tableofcontents
-% \newpage
+\newpage
 
 \part{Vue d'ensemble de la théorie du clustering spectral de graphes}
 \input{chapter/part1/community_detection.tex}
@@ -79,6 +81,10 @@
 
 \part{Analyse d'algorithmes de graph spectral clusturing}
 \input{chapter/part3/bethe_hessian}
+
+\appendix
+\input{chapter/appendix/eigenvalues_algebra}
+
 
 \bibliographystyle{plain}
 \bibliography{b}
