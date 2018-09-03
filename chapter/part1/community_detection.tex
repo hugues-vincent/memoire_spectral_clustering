@@ -70,6 +70,22 @@ On se retrouve donc dans le trade-off classique entre la performance et l'erreur
 Dans ces situations, il faut dont trouver des algorithmes à la fois performants et consistants.\\
 
 C'est dans cette perspective que se place les papiers que nous étudions dans ce mémoire.
+Nous nous placerons toujours dans le contexte d'un Stochastic Block Model, ou SBM, à 2 communautés de même taille et à deux probabilités $p_{in}$ et $p_{out}$.
+
+Un SBM est un graphe aléatoire dans lequel on choisi un nombre de nœuds $n$, le nombre de communautés $q$. 
+On génère ainsi une graphe à n nœuds sans arrêtes, et ensuite pour chaque pair de nœuds on simule une variable de Bernoulli pour décider si l’arrête existe ou non.
+Le paramètre de la loi de Bernoulli est $p_{in}$ si les deux nœuds appartiennent à la même communauté et $p_{out}$ sinon.
+
+Dans ce contexte, d'après le paragraphe \cite[Numerical results]{Spectral_Detection_in_the_Censored_Block_Model}, l'algorithme ``belief propagation'' est réputé pour être optimal sur les partitions rendues.
+Ainsi, pour comparer les performances des algorithmes dans ce contexte, la littérature utilise cet algorithme comme un benchmark du point de vue de la répartition obtenue.
+Ensuite ils comparent la performance et le temps d’exécution par rapport à celui-ci.
+Ci-dessous une figure provenant de \cite{Spectral_redemption_clustering_sparse_networks} qui synthétise ce paragraphe.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{static/bp_perf.png}
+\caption{Précision des algorithmes de détection spectral basées sur différents opérateurs linéaires par rapport l'algorithme ``belief propagation''}
+\end{figure}
+
 \subsection{Perspectives}
 Les limites des modèles spectraux qui sont en développement pour la détection de communauté sont les suivantes:
 \begin{itemize}
