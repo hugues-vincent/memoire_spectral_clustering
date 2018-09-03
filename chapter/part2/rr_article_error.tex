@@ -22,8 +22,9 @@ On obtient donc:
 \end{align*}
 Il y a donc un problème de normalisation.
 
-\subsection{Choix de la variance des entrées de A}
-Nous allons réécrire le raisonnement de l'article \cite[Graph spectra and the detectability of community structure in networks]{raj_rao}
+\subsection{Choix de la variance des entrées de X}
+Nous allons réécrire le raisonnement de l'article \cite[Graph spectra and the detectability of community structure in networks]{raj_rao} lorsque l'on souhaite déterminer la densité spectrale de $X$.\\
+
 La transformé de Stieltjes de $X$ est :
 \begin{equation}
 	\rho(z) = \frac{1}{\pi} Im\langle Tr(zI - X)^{-1}\rangle
@@ -34,9 +35,10 @@ On peut réécrire la trace de la moyenne comme ce qui suit:
 	\langle Tr(zI - X)^{-1}\rangle &= \frac{1}{z}\sum_{k=0}^{\infty} \frac{Tr\langle X^k\rangle}{z^k} \\
 	Tr\langle X^k\rangle &= \sum_{i_1\dots i_k}\langle X_{i_1i_2}X_{i_1i_2}\dots X_{i_ki_1}\rangle \label{eq: trace Xk}
 \end{align}
-On sait que $X$ est centrée et que les $X_{ij} \; \forall i\leq j$ sont des variables de Bernoulli indépendantes définies celon \eqref{eq: X}.
+
+D'après l'analyse préliminaire effectué \autoref{ch:Analyse spectrale de la matrice d'adjacence}, on sait que $X$ est centrée et que les $X_{ij} \; \forall i\leq j$ sont des variables de Bernoulli indépendantes définies celon \eqref{eq: X}.
 Par conséquent $\langle X_{i_1i_2}X_{i_1i_2}\dots X_{i_ki_1}\rangle \neq 0$ si $k = 2m$ avec $m\in \mathbb{N}$ et si chaque $X_{ij}$ apparaît exactement deux fois.
-En effet
+De plus.
 \begin{equation}
 	\langle X_{ij}^2\rangle = \left\{
 	\begin{array}{lr}
@@ -46,10 +48,11 @@ En effet
 \right.\nonumber
 \end{equation}
 
+C'est à ce moment qu’apparaît l'erreur.  
+En effet dans l'article ils choisissent comme variances des entrées de X: 
+\begin{align*}
+	\langle X_{ij}^2 \rangle = \frac{c_{in} + c_{out}}{2n} \;\; \forall \; i,j
+\end{align*}
 \subsection{Détermination de la mesure spectrale de X par la combinatoire}
 Pour trouver la mesure spectrale de $X$, l'article utilise une méthode combinatoire.
 Nous allons refaire le raisonnement en se basant sur la démonstration du théorème de Wigner par la combinatoire dans \cite[Introduction aux matrices aléatoires]{wigner}.\\
-
-
-
-
