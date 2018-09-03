@@ -51,8 +51,42 @@ De plus.
 C'est à ce moment qu’apparaît l'erreur.  
 En effet dans l'article ils choisissent comme variances des entrées de X: 
 \begin{align*}
-	\langle X_{ij}^2 \rangle = \frac{c_{in} + c_{out}}{2n} \;\; \forall \; i,j
+	\langle X_{ij}^2 \rangle = \frac{c_{in} + c_{out}}{2n} \;\; \forall \; i,j \in \{1, \dots, n\} 
 \end{align*}
 \subsection{Détermination de la mesure spectrale de X par la combinatoire}
 Pour trouver la mesure spectrale de $X$, l'article utilise une méthode combinatoire.
 Nous allons refaire le raisonnement en se basant sur la démonstration du théorème de Wigner par la combinatoire dans \cite[Introduction aux matrices aléatoires]{wigner}.\\
+
+L'idée est de montrer que 
+\begin{equation}
+	\mathbb{E}\int f d\mu_n\xrightarrow[n \to +\infty]{}\int f d\mu
+\end{equation}
+Avec $\mu_n$ la densité spectrale de la matrice $\frac{X}{\sqrt{n}}$ construite celons \autoref{rq:probability} et $\mu$ la loi de Wigner de paramètre $\sigma^2 = \frac{\sigma_{in}^2 + \sigma_{out}^2}{2}$.
+
+Presque tout le raisonnement de notre preuve est identique à celui dans \cite[Introduction aux matrices aléatoires]{wigner}. 
+Cependant il diffère à dans la définition de matrice étudié X.
+En effet, dans leur cas les variances de toutes les entrées de la matrice hermitienne sont centrée réduites, elles sont iid et réelles sur la diagonale et iid et complexes ailleurs.\\
+Il faut reprendre le raisonnement sur les graphes qui contribue ou non à la valeur des moments de $\mu_n$. 
+\begin{itemize}
+\item[type 1:] ceux pour qui chaque arrête est présente dans l’autre sens le même nombre de fois, et le graphe obtenu en effaçant les orientations des arrêtes est un graphe sans cycles, c’est-à-dire un arbre ;
+\item[type 2:] ceux pour qui une arrête au moins n’apparaît qu’une seule fois ;
+\item[type 3:] ceux qui ne sont pas de type 1 ou de type 2.
+\end{itemize}
+
+La contribution de chaque type reste la même, nous allons donc nous concentrer sur les graphes de type 1.
+En reprenant la formule des moments on a 
+\begin{align*}
+	\mathbb{E}[X^2m] &= \sum_{G de type 1} \frac{n(n-1)\dots(n-t+1)}{n^{1 + r/2 }}E(H_{G})\\
+	&= \frac{n}{n} \dots \frac{n-m+1}{n} \frac{1}{k+1} \binom{2m}{m} E(H_{G})\\
+	&\xrightarrow[n \to +\infty]{} \frac{1}{1 + m}\binom{2m}{m} E(H_{G})
+\end{align*}
+or après calcul on a 
+\begin{align*}
+	E(H_{G}) = \frac{1}{2^m} \sum_{k=0}^{m} \binom{m}{k}(\sigma_{out}^2)^{m-k} (\sigma_{in}^2)^k
+\end{align*}
+On retrouve la formule du binôme de newton.
+On agrégeant tous les résultats on a 
+\begin{equation}
+ 	\boxed{\mathbb{E}[X^2m] \xrightarrow[n \to +\infty]{} \frac{1}{1 + m}\binom{2m}{m} (\frac{\sigma_{in}^2 + \sigma_{out}^2}{2})^m}
+\end{equation} 
+Ce qui correspond exactement au moment d'ordre de $2m$ de la loi du demi-cercle de paramètre $\sigma^2 = \frac{\sigma_{in}^2 + \sigma_{out}^2}{2}$.
