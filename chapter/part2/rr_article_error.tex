@@ -1,37 +1,6 @@
 \section{Erreurs de l'article}
-\subsection{Détermination de la mesure spectrale de X par la combinatoire}
-Pour trouver la mesure spectrale de $X$, l'article utilise une méthode combinatoire.
-Nous allons dérouler le raisonnement.\\
-La transformé de Stieltjes de $X$ est :
-\begin{equation}
-	\rho(z) = \frac{1}{\pi} Im\langle Tr(zI - X)^{-1}\rangle
-\end{equation}
-où $\langle \dots \rangle$ indique la moyenne de l'ensemble.
-On peut réécrire la trace de la moyenne comme ce qui suit: 
-\begin{align}
-	\langle Tr(zI - X)^{-1}\rangle &= \frac{1}{z}\sum_{k=0}^{\infty} \frac{Tr\langle X^k\rangle}{z^k} \\
-	Tr\langle X^k\rangle &= \sum_{i_1\dots i_k}\langle X_{i_1i_2}X_{i_1i_2}\dots X_{i_ki_1}\rangle \label{eq: trace Xk}
-\end{align}
-On sait que $X$ est centrée et que les $X_{ij} \; \forall i\leq j$ sont des variables de Bernoulli indépendantes définies celon \eqref{eq: X}.
-Par conséquent $\langle X_{i_1i_2}X_{i_1i_2}\dots X_{i_ki_1}\rangle \neq 0$ si $k = 2m$ avec $m\in \mathbb{N}$ et si chaque $X_{ij}$ apparaît exactement deux fois.
-En effet
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-\begin{equation}
-	\langle X_{ij}^2\rangle = \left\{
-	\begin{array}{lr}
-		\sigma_{in}^2  &\; si \; (i,j < \frac{n}{2}) \; ou \; (i,j \ge \frac{n}{2}) \\
-		\sigma_{out}^2 &\; else \; where
-	\end{array}
-\right.\nonumber
-\end{equation}
-
-\eqref{eq: trace Xk}
-
+Dans cette section, allons redémontrer les résultats obtenus dans le \autoref{tab:bilan} via la combinatoire.
+Par la même occasion nous allons expliquer les erreurs commises dans l'article \cite[Graph spectra and the detectability of community structure in networks]{raj_rao}.
 \subsection{Normalisation de la mesure spectrale de X}
 Dans l'article l'équation $(7)$ donne la mesure spectrale de la matrice $X$.
 \begin{align*}
@@ -46,9 +15,41 @@ On sait que son support est $[a, b] = [-\sqrt{2(c_{in} + c_{out})},\sqrt{2(c_{in
 	&= n \int_{a'}^{b'} \frac{1}{\pi} \frac{\sqrt{2 (p_{in} + p_{out}) - u^2}}{p_{in} + p_{out}}  \, \mathrm{d}u  
 \end{align*}
 avec $u^2 = \frac{z^2}{n}$, $a'= \sqrt{2(p_{in} + p_{out})}$ et $b'= \sqrt{2(p_{in} + p_{out})}$.
-Or la fonction sous l’intégrale correspond à la loi du demi-cecle de Wigner de paramètre $\sigma = (p_{in} + p_{out})$, qui est normalisée sur le fermé $[a', b']$.
+Or la fonction sous l’intégrale correspond à la loi du demi-cercle de Wigner de paramètre $\sigma = (p_{in} + p_{out})$, qui est normalisée sur le fermé $[a', b']$.
 On obtient donc:
 \begin{align*}
  	\int_{a}^{b} \rho(z) \, \mathrm{d}z &= n
 \end{align*}
+Il y a donc un problème de normalisation.
+
+\subsection{Choix de la variance des entrées de A}
+Nous allons réécrire le raisonnement de l'article \cite[Graph spectra and the detectability of community structure in networks]{raj_rao}
+La transformé de Stieltjes de $X$ est :
+\begin{equation}
+	\rho(z) = \frac{1}{\pi} Im\langle Tr(zI - X)^{-1}\rangle
+\end{equation}
+où $\langle \dots \rangle$ indique la moyenne de l'ensemble.
+On peut réécrire la trace de la moyenne comme ce qui suit: 
+\begin{align}
+	\langle Tr(zI - X)^{-1}\rangle &= \frac{1}{z}\sum_{k=0}^{\infty} \frac{Tr\langle X^k\rangle}{z^k} \\
+	Tr\langle X^k\rangle &= \sum_{i_1\dots i_k}\langle X_{i_1i_2}X_{i_1i_2}\dots X_{i_ki_1}\rangle \label{eq: trace Xk}
+\end{align}
+On sait que $X$ est centrée et que les $X_{ij} \; \forall i\leq j$ sont des variables de Bernoulli indépendantes définies celon \eqref{eq: X}.
+Par conséquent $\langle X_{i_1i_2}X_{i_1i_2}\dots X_{i_ki_1}\rangle \neq 0$ si $k = 2m$ avec $m\in \mathbb{N}$ et si chaque $X_{ij}$ apparaît exactement deux fois.
+En effet
+\begin{equation}
+	\langle X_{ij}^2\rangle = \left\{
+	\begin{array}{lr}
+		\sigma_{in}^2  &\; si \; (i,j < \frac{n}{2}) \; ou \; (i,j \ge \frac{n}{2}) \\
+		\sigma_{out}^2 &\; else \; where
+	\end{array}
+\right.\nonumber
+\end{equation}
+
+\subsection{Détermination de la mesure spectrale de X par la combinatoire}
+Pour trouver la mesure spectrale de $X$, l'article utilise une méthode combinatoire.
+Nous allons refaire le raisonnement en se basant sur la démonstration du théorème de Wigner par la combinatoire dans \cite[Introduction aux matrices aléatoires]{wigner}.\\
+
+
+
 
