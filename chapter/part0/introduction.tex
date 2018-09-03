@@ -1,2 +1,25 @@
-Ce mémoire a été réalisé en collaboration avec Jamal Najim au sein de LIGM (Laboratoire d'Informatique Gaspard Monge).
-L'objectif de ce stage était d'étudier certaines méthodes de ``graph spectral clustering''.
+Ce mémoire a été réalisé en collaboration avec Jamal Najim au sein de LIGM (Laboratoire d'Informatique Gaspard Monge) à l'Université de Marne La Vallée.
+L'objectif de ce stage était d'étudier les méthodes de détection de communauté du point de vue des matrices aléatoires.\\
+
+La détection de communautés est un important domaine de recherche. 
+Depuis l'arrivé des nouvelles technologies et notamment depuis la propagation du Web, une quantité gigantesque d'information est apparue donnant ainsi naissance à une abondance de graphes et de réseaux à étudier.
+Il y a un nombre substantiel d'applications à l'étude de ces graphes.
+En effet la structure des graphes se retrouve partout: 
+\begin{itemize}
+	\item Ensemble des sites web ;
+	\item Ensemble des articles scientifiques ;
+	\item Organes du corps humain ;
+	\item Théorèmes mathématiques ;
+	\item Images ;
+	\item Flux économiques.
+\end{itemize}
+Une propriété des réseaux que l'on souhaite naturellement dégager est leur structure de communauté.
+Dit autrement, nous souhaitons trouver une partition des nœuds du graphe afin d'étudier les connections ou les similarités les éléments du réseaux en questions.\\
+
+Dans ce contexte, la théorie des matrices aléatoires a une application direct, le ``spectral graph clustering''.
+L'intérêt de ces méthodes de détection sont leur rapidité d’exécution.
+C'est domaine de recherche récent qui date des années 2000 et qui à eu un regain de vigueur suite à la publication de l'article ``Graph spectra and the detectability of community structure in networks'' \cite{raj_rao} en 2012.
+
+Dans ce mémoire, nous allons précisément étudier cet article.
+Il y a une erreur théorique dans ce papier et nous allons essayer de redémontrer les résultats en dégageant l'erreur commise.
+Ensuite nous étudierons des algorithmes spectral plus sophistiqués et performants.\\
