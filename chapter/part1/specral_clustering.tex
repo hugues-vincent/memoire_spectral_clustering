@@ -14,6 +14,14 @@ Il existe tout un ensemble de matrices représentant le graphe:
 Par exemple, la matrice d'adjacence d'un graphe, notée $A$, est définie telle que $\forall i,j \in V, \; A_{ij} = \mathbbm{1}_{(i,j) \in E}$.
 Une colonne $i$ représente le nœud $i$ dont chaque composante, $j$, est égale à $1$ si il existe une arête entre $i$ et $j$ et $0$ sinon.\\
 
+Ci-dessous un graphe qui permettant d'avoir une vue d'ensemble sur l'avancement des méthodes de spectrales de détection de communautés.
+Cette liste n'est pas exhaustive.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{static/graph_research.png}
+\caption{graphe des différentes méthodes de ``graph spectral clustering''}
+\end{figure}
+
 \subsection{Algorithme de clustering spectral de graphe}
  \label{par:algo spectral clustering}
 La procédure pour associer une communauté aux nœuds de $G$ via une méthode spectrale est la suivante: 
@@ -44,7 +52,9 @@ Dans cette situation, la méthode spectrale est incapable de déceler la structu
 Les vecteurs colonnes de W correspondent à des combinaisons linéaires de nœuds.
 De par la construction de A, les entrées $i$ de ces vecteurs colonnes sont la somme des arêtes entre les nœuds sous-jacent et le nœud $i$.
 Les vecteurs propres que l'on a gardés sont ceux qui portent l'information des communautés.
-Donc chaque vecteur ligne représente un nœud du graphe et l'espace dans lequel il se meut constitue l'information de la structure de communauté. 
+Donc chaque vecteur ligne représente un nœud du graphe et l'espace dans lequel il se meut constitue l'information de la structure de communauté.\\
+
+Les algorithmes de détection de communauté spectraux à partir des opérateurs linéaires tels que la matrice ``non-backtracking'' et la matrice ``Bethe Hessian'' sont similaires et sont décrits dans l'article \cite[Spectral detection in the censored block model]{Spectral_Detection_in_the_Censored_Block_Model}.
 
 \subsection{Non-backtracking matrix}
 \subsubsection{Localization and Centrality in Networks }
