@@ -1,4 +1,4 @@
-\section{Valeurs propres obtenues via algèbre linéaire}
+\section{Valeurs propres obtenues via algèbre linéaire}\label{annexe: A}
 Dans cette annexe nous allons trouver les valeurs propres de l'\autoref{eq: A generalize}.
 
 On a 
@@ -9,7 +9,7 @@ avec $\theta_q$ une matrice $q \times q$, dont les éléments diagonaux sont ég
 On cherche les valeurs propres de $\langle A \rangle$: 
 \begin{align*}
 	&\Leftrightarrow 
-		|\A| = 0\\
+		|\A - \lambda I_n| = 0\\
 	&\Leftrightarrow 
 		det(\theta_q \otimes \mathbf{1}_{n_q} \mathbf{1}_{n_q}^t - \lambda I_n) = 0
 \end{align*}
@@ -39,7 +39,7 @@ on obtient
 	det(\A ) &= 
 	\begin{vmatrix}
 	B & (q-1)C\\
-	C & B + (q-1)C
+	C & B + (q-2)C
 	\end{vmatrix}
 	| B - C |^{q-2} \\
 	 &= F_{n_q}G_{n_q}^{q-2}
@@ -47,16 +47,23 @@ on obtient
 
 Commençons par factoriser le polynôme $G_{n_q}^{q-2}$.
 En utilisant la même stratégie que \eqref{eq: matrix method}, on obtient:
+\begin{align*}
+	G_{n_q} = (-\lambda)^{n_q - 1} (\lambda - n_q(a-b))
+\end{align*}
+
+Même stratégie pour $F_{n_q}$ et $H_{n_q}$ qui suit, on obtient: 
+\begin{align*}
+	F_{n_q} &= (-\lambda)^{n_q - 1} H_{n_{q}}\\
+	H_{n_{q}} &= 
+	\begin{vmatrix}
+	A & n_{q}(q-1)\mathbf{1}_{n_q} \\
+	b\mathbf{1}_{n_q}^t  &  n_q(a + (q-2)b) - \lambda
+	\end{vmatrix}\\
+	&= (-\lambda)^{n_q - 1}E_{n_q}\\
+	&= (-\lambda)^{n_q - 1}(\lambda - n_q(a + (q-1)b))(\lambda - n_q(a-b)) 
+\end{align*}
+On a donc au final
 \begin{equation}
-	G_{n_q}^{q-2} = (-\lambda)^{n_q - 1} (\lambda - n_q(a-b))
+	\boxed{det(\A - \lambda I_n) = (-\lambda)^{q(n_q -1)}(\lambda - n_q(a-b))^{q-1}(\lambda - n_q(a + (q-1)b)) }
 \end{equation}
-% (L_n \leftarrow L_n  - L_{n-1}) &= 
-% \begin{vmatrix}
-% B & C &  \dots & & \dots & C \\ 
-% C & \ddots &  & & & \vdots \\ 
-% \vdots &  &  & \ddots & & C \\ 
-% C & \ldots & \ldots & C & B & C\\
-% 0 & \ldots & \ldots & 0 & C - B & B - C 
-% \end{vmatrix} \\
-% (C_{n-1} \leftarrow C_{n-1}  + C_n) &= 
-% \end{align*}
+Donc les trois valeurs propres de la matrice $\A$ sont $0$, $n_q(p_{in} + (q-1)p_{out})$, $n_q(p_{in}-p_{out})$ de multiplicités respectives $q(n_q - 1)$, $1$, $q-1$.\\
