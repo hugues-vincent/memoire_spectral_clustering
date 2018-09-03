@@ -66,7 +66,7 @@ Ci-dessous une liste non exhaustive des métriques qui seront utilisées ultéri
 \subsection{Comparaison des performances}
 Une autre problématique des algorithmes de détection de communautés est la performance.
 En effet, beaucoup de méthodes considérées comme les plus efficaces du point de vue des communautés obtenues ont une complexité polynomiale voire exponentielle.
-Or beaucoup de réseaux de vrai-monde ont un nombre de nœuds d'un ordre largement supérieur au milliard. 
+Or beaucoup de réseaux du vrai-monde ont un nombre de nœuds d'un ordre largement supérieur au milliard. 
 On se retrouve donc dans le trade-off classique entre la performance et l'erreur d'approximation. 
 Dans ces situations, il faut dont trouver des algorithmes à la fois performants et consistants.\\
 
@@ -84,13 +84,27 @@ Ci-dessous une figure provenant de \cite{Spectral_redemption_clustering_sparse_n
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{static/bp_perf.png}
-\caption{Précision des algorithmes de détection spectral basées sur différents opérateurs linéaires par rapport l'algorithme ``belief propagation''}
+\caption{Précision des algorithmes de détection spectral basées sur différents opérateurs linéaires par rapport l'algorithme ``belief propagation''. \cite{Spectral_redemption_clustering_sparse_networks}}
 \end{figure}
 
 \subsection{Perspectives}
 Les limites des modèles spectraux qui sont en développement pour la détection de communauté sont les suivantes:
+\par{1- Raffinement des modèles génératifs: } 
+
+Comme dit précédemment, l'idéal, serait d'avoir un modèle génératif de graphe qui correspond au mieux aux réseaux obtenus sur des exemples concrets.
+Cependant, les graphes théoriques sont loin d'êtres représentatif de la réalité et il y a encore beaucoup de propriétés à découvrir sur les graphes du vrai-monde.\\
+
+\par{2- Temps de calcul sur de grands graphes: } 
+
+Les graphes étant de plus en plus grands, beaucoup de recherches se tournent sur la performance algorithmique des algorithmes de détection de communautés et en particulier sur les méthodes spectrales.\\
+
+\par{3- Seuil à partir duquel la méthode spectrale n'est plus en mesure de détecter le communauté: } 
+
+Certains algorithmes ont des limites quand à la détectabilité de la structure de communauté. 
+Le but ici est de trouver des modèles qui permettent de trouver les partitions optimums et qui fonctionnent sur le plus large ensemble de graphes possibles.\\
+
+D'autres perspectives de recherche existe également dans le domaine de la détection de communautés indépendamment des matrices aléatoires.
 \begin{itemize}
-	\item[1-] Seuil à partir duquel la méthode spectrale n'est plus en mesure de détecter le communauté ;  
-	\item[2-] Temps de calcul sur de grands graphes;  
-	\item[3-] Raffinement des modèles de communautés.  
+	\item[1-] Détection de communautés avec chevauchement (i.e nœuds appartenant à plusieurs communautés à la fois) ;
+	\item[2-] Détection de communautés sur des réseaux multi-dimensionnel.
 \end{itemize}
